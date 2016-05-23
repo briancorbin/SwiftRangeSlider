@@ -8,58 +8,58 @@
 
 import UIKit
 import QuartzCore
-
-@IBDesignable class RangeSlider: UIControl {
-  @IBInspectable var minimumValue: Double = 0.0 {
+@IBDesignable public class RangeSlider: UIControl {
+  
+  @IBInspectable public var minimumValue: Double = 0.0 {
     didSet {
       updateLayerFrames()
     }
   }
   
-  @IBInspectable var maximumValue: Double = 1.0 {
+  @IBInspectable public var maximumValue: Double = 1.0 {
     didSet {
       updateLayerFrames()
     }
   }
   
-  @IBInspectable var lowerValue: Double = 0.2 {
+  @IBInspectable public var lowerValue: Double = 0.2 {
     didSet {
       updateLayerFrames()
     }
   }
   
-  @IBInspectable var upperValue: Double = 0.8 {
+  @IBInspectable public var upperValue: Double = 0.8 {
     didSet {
       updateLayerFrames()
     }
   }
   
-  @IBInspectable var trackTintColor: UIColor = UIColor(white: 0.9, alpha: 1.0) {
+  @IBInspectable public var trackTintColor: UIColor = UIColor(white: 0.9, alpha: 1.0) {
     didSet {
       trackLayer.setNeedsDisplay()
     }
   }
   
-  @IBInspectable var trackHighlightTintColor: UIColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0) {
+  @IBInspectable public var trackHighlightTintColor: UIColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0) {
     didSet {
       trackLayer.setNeedsDisplay()
     }
   }
   
-  @IBInspectable var trackThickness: CGFloat = 0.1 {
+  @IBInspectable public var trackThickness: CGFloat = 0.1 {
     didSet {
       updateLayerFrames()
     }
   }
   
-  @IBInspectable var thumbTintColor: UIColor = UIColor.whiteColor() {
+  @IBInspectable public var thumbTintColor: UIColor = UIColor.whiteColor() {
     didSet {
       lowerThumbLayer.setNeedsDisplay()
       upperThumbLayer.setNeedsDisplay()
     }
   }
   
-  @IBInspectable var curvaceousness: CGFloat = 1.0 {
+  @IBInspectable public var curvaceousness: CGFloat = 1.0 {
     didSet {
       trackLayer.setNeedsDisplay()
       lowerThumbLayer.setNeedsDisplay()
@@ -77,7 +77,7 @@ import QuartzCore
     return CGFloat(bounds.height)
   }
   
-  override var frame: CGRect {
+  override public var frame: CGRect {
     didSet {
       updateLayerFrames()
     }
@@ -88,7 +88,7 @@ import QuartzCore
     addContentViews()
   }
   
-  required init(coder: NSCoder) {
+  required public init(coder: NSCoder) {
     super.init(coder: coder)!
     addContentViews()
   }
@@ -107,7 +107,7 @@ import QuartzCore
     layer.addSublayer(upperThumbLayer)
   }
   
-  func updateLayerFrames() {
+  public func updateLayerFrames() {
     CATransaction.begin()
     CATransaction.setDisableActions(true)
     let newTrackDy = (frame.height - frame.height * trackThickness) / 2
@@ -136,10 +136,9 @@ import QuartzCore
     return min(max(value, lowerValue), upperValue)
   }
   
-  override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
+  override public func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
     previousLocation = touch.locationInView(self)
     
-    // Hit test the thumb layers
     if lowerThumbLayer.frame.contains(previousLocation) {
       lowerThumbLayer.highlighted = true
     } else if upperThumbLayer.frame.contains(previousLocation) {
@@ -149,16 +148,14 @@ import QuartzCore
     return lowerThumbLayer.highlighted || upperThumbLayer.highlighted
   }
   
-  override func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
+  override public func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
     let location = touch.locationInView(self)
     
-    // 1. Determine by how much the user has dragged
     let deltaLocation = Double(location.x - previousLocation.x)
     let deltaValue = (maximumValue - minimumValue) * deltaLocation / Double(bounds.width - thumbWidth)
     
     previousLocation = location
     
-    // 2. Update the values
     if lowerThumbLayer.highlighted {
       lowerValue += deltaValue
       lowerValue = boundValue(lowerValue, toLowerValue: minimumValue, upperValue: upperValue)
@@ -168,11 +165,11 @@ import QuartzCore
     }
     
     sendActionsForControlEvents(.ValueChanged)
-    
+        
     return true
   }
   
-  override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
+  override public func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
     lowerThumbLayer.highlighted = false
     upperThumbLayer.highlighted = false
   }
