@@ -1,0 +1,16 @@
+PODS:
+  - SwiftRangeSlider (0.1.0)
+
+DEPENDENCIES:
+  - SwiftRangeSlider (from `~/Documents/Mobile Dev/Pods/SwiftRangeSlider`)
+
+EXTERNAL SOURCES:
+  SwiftRangeSlider:
+    :path: "~/Documents/Mobile Dev/Pods/SwiftRangeSlider"
+
+SPEC CHECKSUMS:
+  SwiftRangeSlider: 75bc61e8d16f40017d9f09e1984e741b27de276b
+
+PODFILE CHECKSUM: ec9bdc643f9f47b56ee1d94b1f3b25fa7dba5c08
+
+COCOAPODS: 1.0.0
