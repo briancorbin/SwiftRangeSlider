@@ -1,4 +1,7 @@
 # SwiftRangeSlider
+![CocoaPods](https://img.shields.io/cocoapods/v/SwiftRangeSlider.svg)
+![CocoaPods](https://img.shields.io/cocoapods/l/SwiftRangeSlider.svg)
+![CocoaPods](https://img.shields.io/cocoapods/p/SwiftRangeSlider.svg)
 
 This is a swift implementation of custom UIControl that allows users to select a range of values on a slider bar with 2 knobs.
 
