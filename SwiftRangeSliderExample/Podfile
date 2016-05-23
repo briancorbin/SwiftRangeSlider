@@ -1,7 +1,0 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
-use_frameworks!
-
-target 'SwiftRangeSliderExample' do
-  pod 'SwiftRangeSlider', :path => '~/Documents/Mobile Dev/Pods/SwiftRangeSlider'
-end
