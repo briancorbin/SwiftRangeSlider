@@ -15,6 +15,6 @@ s.source = { :git => "https://github.com/BrianCorbin/SwiftRangeSlider.git", :tag
 s.framework = "UIKit"
 
 s.source_files = "SwiftRangeSlider/**/*.{swift}"
-s.resources = "SwiftRangeSlider/**/*.{png,jpeg,jpg,storyboard,xib}"
+#s.resources = "SwiftRangeSlider/**/*.{png,jpeg,jpg,storyboard,xib}"
 
 end
