@@ -20,17 +20,19 @@ class RangeSliderThumbLayer: CALayer {
   override func drawInContext(ctx: CGContext) {
     if let slider = rangeSlider {
       let thumbFrame = bounds.insetBy(dx: 2.0, dy: 2.0)
-      let cornerRadius = thumbFrame.height * slider.curvaceousness / 2.0
+      let cornerRadius = thumbFrame.height * slider.curvaceousness / 2
       let thumbPath = UIBezierPath(roundedRect: thumbFrame, cornerRadius: cornerRadius)
       
       let shadowColor = UIColor.grayColor()
-      CGContextSetShadowWithColor(ctx, CGSize(width: 0.0, height: 1.0), 1.0, shadowColor.CGColor)
+      if (rangeSlider!.thumbHasShadow){
+        CGContextSetShadowWithColor(ctx, CGSize(width: 0.0, height: 1.0), 1.0, shadowColor.CGColor)
+      }
       CGContextSetFillColorWithColor(ctx, slider.thumbTintColor.CGColor)
       CGContextAddPath(ctx, thumbPath.CGPath)
       CGContextFillPath(ctx)
       
       CGContextSetStrokeColorWithColor(ctx, shadowColor.CGColor)
-      CGContextSetLineWidth(ctx, 0.5)
+      CGContextSetLineWidth(ctx, (rangeSlider?.thumbBorderThickness)!)
       CGContextAddPath(ctx, thumbPath.CGPath)
       CGContextStrokePath(ctx)
       

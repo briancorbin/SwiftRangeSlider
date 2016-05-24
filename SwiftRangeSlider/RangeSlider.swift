@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+
 @IBDesignable public class RangeSlider: UIControl {
   
   @IBInspectable public var minimumValue: Double = 0.0 {
@@ -54,6 +55,20 @@ import QuartzCore
   
   @IBInspectable public var thumbTintColor: UIColor = UIColor.whiteColor() {
     didSet {
+      lowerThumbLayer.setNeedsDisplay()
+      upperThumbLayer.setNeedsDisplay()
+    }
+  }
+  
+  @IBInspectable public var thumbBorderThickness: CGFloat = 0.1 {
+    didSet {
+      lowerThumbLayer.setNeedsDisplay()
+      upperThumbLayer.setNeedsDisplay()
+    }
+  }
+  
+  @IBInspectable public var thumbHasShadow: Bool = true {
+    didSet{
       lowerThumbLayer.setNeedsDisplay()
       upperThumbLayer.setNeedsDisplay()
     }
