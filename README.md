@@ -39,5 +39,36 @@ $ pod install
 ```
 
 ## Usage
+```swift
+import SwiftRangeSlider
+```
 
-Coming soon! For now, check out the example project to see how to use it :)
+### With Storyboards
+
+To use SwiftRangeSlider on a storyboard, add a UIView to your view controller and set its class to RangeSlider.
+
+![SRS With Storyboards 1](http://i.imgur.com/rFUeouz.png)
+![SRS With Storyboards 2](http://i.imgur.com/HSVrFKU.png)
+
+Most of the customization parameters can be changed through IBDesignable and IBInspectable and should be reflected on the storyboard!
+
+![SRS With Storyboards 3](http://i.imgur.com/DK9w4Ej.png)
+
+To reference the `RangeSlider` on your storyboard in your view controller's file, create an `@IBOutlet` connection of type `RangeSlider`:
+
+```swift
+@IBOutlet weak var rangeSlider: RangeSlider!
+```
+In order to initially reflect your layout settings via autolayout when the view controller loads, please call the `updateLayerFrames()` function inside of `viewDidLayoutSubviews()`:
+
+```swift
+override func viewDidLayoutSubviews() {
+    rangeSlider.updateLayerFrames()
+  }
+```
+
+### Programmatically
+
+```swift
+let rangeSlider:RangeSlider = RangeSlider()
+```
