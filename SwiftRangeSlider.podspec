@@ -6,7 +6,7 @@ s.name = "SwiftRangeSlider"
 s.summary = "Description"
 s.requires_arc = true
 
-s.version = "0.1.0"
+s.version = "0.2.0"
 s.license = { :type => "MIT", :file => "LICENSE" }
 s.author = { "Brian Corbin" => "brian.william.corbin@gmail.com" }
 s.homepage = "https://github.com/BrianCorbin/SwiftRangeSlider"
