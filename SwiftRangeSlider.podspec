@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 s.platform = :ios
 s.ios.deployment_target = '9.0'
 s.name = "SwiftRangeSlider"
-s.summary = "Description"
+s.summary = "A Swift implementation of a custom UIControl for selecting a range of values on a slider bar."
 s.requires_arc = true
 
 s.version = "0.2.0"
