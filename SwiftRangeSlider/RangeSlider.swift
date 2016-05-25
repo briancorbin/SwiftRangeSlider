@@ -9,50 +9,61 @@
 import UIKit
 import QuartzCore
 
+
+///Class that represents the RangeSlider object.
 @IBDesignable public class RangeSlider: UIControl {
   
+  // MARK: - Properties
+  
+  ///The minimum value selectable on the RangeSlider
   @IBInspectable public var minimumValue: Double = 0.0 {
     didSet {
       updateLayerFrames()
     }
   }
-  
+  ///The maximum value selectable on the RangeSlider
   @IBInspectable public var maximumValue: Double = 1.0 {
     didSet {
       updateLayerFrames()
     }
   }
   
+  ///The current lower value selected on the RangeSlider
   @IBInspectable public var lowerValue: Double = 0.2 {
     didSet {
       updateLayerFrames()
     }
   }
   
+  ///The current upper value selected on the RangeSlider
   @IBInspectable public var upperValue: Double = 0.8 {
     didSet {
       updateLayerFrames()
     }
   }
   
+  ///The color of the track bar outside of the selected range
   @IBInspectable public var trackTintColor: UIColor = UIColor(white: 0.9, alpha: 1.0) {
     didSet {
       trackLayer.setNeedsDisplay()
     }
   }
   
+  ///The color of the track bar within the selected range
   @IBInspectable public var trackHighlightTintColor: UIColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0) {
     didSet {
       trackLayer.setNeedsDisplay()
     }
   }
   
+  ///the thickness of the track bar. `0.1` by default.
   @IBInspectable public var trackThickness: CGFloat = 0.1 {
     didSet {
       updateLayerFrames()
     }
   }
   
+  ///The color of the slider buttons. `White` by default.
   @IBInspectable public var thumbTintColor: UIColor = UIColor.whiteColor() {
     didSet {
       lowerThumbLayer.setNeedsDisplay()
@@ -60,6 +71,7 @@ import QuartzCore
     }
   }
   
+  ///The thickness of the slider buttons border. `0.1` by default.
   @IBInspectable public var thumbBorderThickness: CGFloat = 0.1 {
     didSet {
       lowerThumbLayer.setNeedsDisplay()
@@ -67,6 +79,7 @@ import QuartzCore
     }
   }
   
+  ///Whether or not the slider buttons have a shadow. `true` by default.
   @IBInspectable public var thumbHasShadow: Bool = true {
     didSet{
       lowerThumbLayer.setNeedsDisplay()
@@ -74,6 +87,7 @@ import QuartzCore
     }
   }
   
+  ///The curvaceousness of the ends of the track bar and the slider buttons. `1.0` by default.
   @IBInspectable public var curvaceousness: CGFloat = 1.0 {
     didSet {
       trackLayer.setNeedsDisplay()
@@ -92,17 +106,30 @@ import QuartzCore
     return CGFloat(bounds.height)
   }
   
+  ///The frame of the `RangeSlider` instance.
   override public var frame: CGRect {
     didSet {
       updateLayerFrames()
     }
   }
   
-  override init(frame: CGRect) {
+  // MARK: - Lifecycle
+  
+  /**
+   Initializes the `RangeSlider` instance with the specified frame.
+   
+   - returns: The new `RangeSlider` instance.
+   */
+  override public init(frame: CGRect) {
     super.init(frame: frame)
     addContentViews()
   }
   
+  /**
+   Initializes the `RangeSlider` instance from the storyboard.
+   
+   - returns: The new `RangeSlider` instance.
+   */
   required public init(coder: NSCoder) {
     super.init(coder: coder)!
     addContentViews()
@@ -122,6 +149,10 @@ import QuartzCore
     layer.addSublayer(upperThumbLayer)
   }
   
+  // MARK: Member Functions
+  
+  
+  ///Updates all of the layer frames that make up the `RangeSlider` instance.
   public func updateLayerFrames() {
     CATransaction.begin()
     CATransaction.setDisableActions(true)
@@ -151,6 +182,11 @@ import QuartzCore
     return min(max(value, lowerValue), upperValue)
   }
   
+  /**
+   Triggers on touch of the `RangeSlider` and checks whether either of the slider buttons have been touched and sets their `highlighted` property to true.
+   
+   - returns: A bool indicating if either of the slider buttons were inside of the `UITouch`.
+ */
   override public func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
     previousLocation = touch.locationInView(self)
     
@@ -162,6 +198,12 @@ import QuartzCore
     
     return lowerThumbLayer.highlighted || upperThumbLayer.highlighted
   }
+  
+  /**
+   Triggers on a continued touch of the `RangeSlider` and updates the value corresponding with the new button location.
+   
+   - returns: A bool indicating success.
+   */
   
   override public func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
     let location = touch.locationInView(self)
@@ -184,6 +226,9 @@ import QuartzCore
     return true
   }
   
+  /**
+   Triggers on the end of touch of the `RangeSlider` and sets the button layers `highlighted` property to `false`.
+   */
   override public func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
     lowerThumbLayer.highlighted = false
     upperThumbLayer.highlighted = false
