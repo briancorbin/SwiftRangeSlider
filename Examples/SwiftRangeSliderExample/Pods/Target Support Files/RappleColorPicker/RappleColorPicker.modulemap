@@ -1,0 +1,6 @@
+framework module RappleColorPicker {
+  umbrella header "RappleColorPicker-umbrella.h"
+
+  export *
+  module * { export * }
+}

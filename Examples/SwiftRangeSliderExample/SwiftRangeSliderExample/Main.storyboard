@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="testingPod" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1MQ-Jr-2fG" customClass="RangeSlider" customModule="SwiftRangeSlider">
+                                <rect key="frame" x="20" y="20" width="560" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="Mqb-h3-cY9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="curvaceousness">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="rangeSliderValuesChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="18D-Bs-o35"/>
+                                </connections>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UWl-1n-4nc">
+                                <rect key="frame" x="18" y="98" width="564" height="31"/>
+                                <connections>
+                                    <action selector="curvaceousnessValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="nvU-TU-X8s"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Curaveousness: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfD-Wl-GPn">
+                                <rect key="frame" x="20" y="69" width="137" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Bar Thickness: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVj-aJ-9gi">
+                                <rect key="frame" x="20" y="136" width="175" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="JwX-Z2-n9q">
+                                <rect key="frame" x="18" y="165" width="564" height="31"/>
+                                <connections>
+                                    <action selector="trackBarThicknessValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="F7O-dv-JHk"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7F-i6-kfK">
+                                <rect key="frame" x="20" y="203" width="110" height="30"/>
+                                <state key="normal" title="Track Tint Color"/>
+                                <connections>
+                                    <action selector="trackTintColorButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2IB-TO-Pku"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MU8-ff-FyO">
+                                <rect key="frame" x="20" y="241" width="176" height="30"/>
+                                <state key="normal" title="Track Highlight Tint Color"/>
+                                <connections>
+                                    <action selector="trackHighlightTintColorButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gSB-XS-YY7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABn-gd-TRn">
+                                <rect key="frame" x="20" y="279" width="120" height="30"/>
+                                <state key="normal" title="Thumb Tint Color"/>
+                                <connections>
+                                    <action selector="thumbTintColorButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QQB-GI-FM5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ABn-gd-TRn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="08d-5G-a9v"/>
+                            <constraint firstItem="n7F-i6-kfK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0Ie-W1-Bw0"/>
+                            <constraint firstItem="NVj-aJ-9gi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Aom-84-8qb"/>
+                            <constraint firstItem="hfD-Wl-GPn" firstAttribute="top" secondItem="1MQ-Jr-2fG" secondAttribute="bottom" constant="18" id="D9f-Xo-sp0"/>
+                            <constraint firstItem="UWl-1n-4nc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HzW-th-lif"/>
+                            <constraint firstItem="1MQ-Jr-2fG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="JUl-sp-NCh"/>
+                            <constraint firstItem="NVj-aJ-9gi" firstAttribute="top" secondItem="UWl-1n-4nc" secondAttribute="bottom" constant="8" id="QU9-T7-FQm"/>
+                            <constraint firstItem="MU8-ff-FyO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="WEd-S4-fGQ"/>
+                            <constraint firstItem="ABn-gd-TRn" firstAttribute="top" secondItem="MU8-ff-FyO" secondAttribute="bottom" constant="8" id="Z8o-fh-fKA"/>
+                            <constraint firstItem="UWl-1n-4nc" firstAttribute="top" secondItem="hfD-Wl-GPn" secondAttribute="bottom" constant="8" id="d6O-lo-vt2"/>
+                            <constraint firstItem="hfD-Wl-GPn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qdj-TV-YLD"/>
+                            <constraint firstItem="1MQ-Jr-2fG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rD5-97-b7o"/>
+                            <constraint firstItem="MU8-ff-FyO" firstAttribute="top" secondItem="n7F-i6-kfK" secondAttribute="bottom" constant="8" id="sTl-9m-lUq"/>
+                            <constraint firstItem="1MQ-Jr-2fG" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="sbm-cM-1oV"/>
+                            <constraint firstItem="JwX-Z2-n9q" firstAttribute="top" secondItem="NVj-aJ-9gi" secondAttribute="bottom" constant="8" id="t3z-JZ-iep"/>
+                            <constraint firstItem="JwX-Z2-n9q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="vTC-YX-obL"/>
+                            <constraint firstItem="JwX-Z2-n9q" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="wuK-cE-P2A"/>
+                            <constraint firstItem="n7F-i6-kfK" firstAttribute="top" secondItem="JwX-Z2-n9q" secondAttribute="bottom" constant="8" id="xV2-hA-Gpi"/>
+                            <constraint firstItem="UWl-1n-4nc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yGf-dd-G1u"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="curvaceousnessLabel" destination="hfD-Wl-GPn" id="l7W-xu-KjS"/>
+                        <outlet property="curvaceousnessSlider" destination="UWl-1n-4nc" id="f13-q4-DR4"/>
+                        <outlet property="rangeSlider" destination="1MQ-Jr-2fG" id="H8F-mu-LEd"/>
+                        <outlet property="trackBarThicknessLabel" destination="NVj-aJ-9gi" id="qS6-kj-1kV"/>
+                        <outlet property="trackBarThicknessSlider" destination="JwX-Z2-n9q" id="8fm-w7-BiY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="372"/>
+        </scene>
+    </scenes>
+</document>
