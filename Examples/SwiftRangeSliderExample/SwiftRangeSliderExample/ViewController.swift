@@ -33,7 +33,7 @@ class ViewController: UIViewController, RappleColorPickerDelegate {
   @IBAction func rangeSliderValuesChanged(rangeSlider: RangeSlider) {
     print("\(rangeSlider.lowerValue), \(rangeSlider.upperValue)")
   }
-
+  
   @IBAction func curvaceousnessValueChanged(slider: UISlider) {
     curvaceousnessLabel.text = "Curvaceousness: \(slider.value)"
     rangeSlider.curvaceousness = CGFloat(slider.value)

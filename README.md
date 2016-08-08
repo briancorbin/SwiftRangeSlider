@@ -25,7 +25,7 @@ $ gem install cocoapods
 To integrate SwiftRangeSlider into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-platform :ios, '9.0'
+platform :ios, ‘8.0’
 use_frameworks!
 target '[your_app_name]' do
   pod ‘SwiftRangeSlider’
