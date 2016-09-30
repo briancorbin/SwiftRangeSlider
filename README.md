@@ -8,7 +8,7 @@ This is a swift implementation of custom UIControl that allows users to select a
 ## Requirements
 
 - iOS 8.0+
-- Xcode 7.3+
+- Xcode 8+
 
 ## Installation
 
