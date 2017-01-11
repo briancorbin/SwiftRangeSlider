@@ -30,32 +30,32 @@ class ViewController: UIViewController, RappleColorPickerDelegate {
     rangeSlider.updateLayerFrames()
   }
   
-  @IBAction func rangeSliderValuesChanged(rangeSlider: RangeSlider) {
+  @IBAction func rangeSliderValuesChanged(_ rangeSlider: RangeSlider) {
     print("\(rangeSlider.lowerValue), \(rangeSlider.upperValue)")
   }
   
-  @IBAction func curvaceousnessValueChanged(slider: UISlider) {
+  @IBAction func curvaceousnessValueChanged(_ slider: UISlider) {
     curvaceousnessLabel.text = "Curvaceousness: \(slider.value)"
     rangeSlider.curvaceousness = CGFloat(slider.value)
   }
-  @IBAction func trackBarThicknessValueChanged(slider: UISlider) {
+  @IBAction func trackBarThicknessValueChanged(_ slider: UISlider) {
     trackBarThicknessLabel.text = "Track Bar Thickness: \(slider.value)"
     rangeSlider.trackThickness = CGFloat(slider.value)
   }
   
-  @IBAction func trackTintColorButtonPressed(sender: AnyObject) {
-    RappleColorPicker.openColorPallet(onViewController: self, origin: CGPointMake(50, 100), delegate: self, title: "Color", tag: 0)
+  @IBAction func trackTintColorButtonPressed(_ sender: AnyObject) {
+    RappleColorPicker.openColorPallet(onViewController: self, origin: CGPoint(x: 50, y: 100), delegate: self, title: "Color", tag: 0)
   }
   
-  @IBAction func trackHighlightTintColorButtonPressed(sender: AnyObject) {
-    RappleColorPicker.openColorPallet(onViewController: self, origin: CGPointMake(50, 100), delegate: self, title: "Color", tag: 1)
+  @IBAction func trackHighlightTintColorButtonPressed(_ sender: AnyObject) {
+    RappleColorPicker.openColorPallet(onViewController: self, origin: CGPoint(x: 50, y: 100), delegate: self, title: "Color", tag: 1)
   }
   
-  @IBAction func thumbTintColorButtonPressed(sender: AnyObject) {
-    RappleColorPicker.openColorPallet(onViewController: self, origin: CGPointMake(50, 100), delegate: self, title: "Color", tag: 2)
+  @IBAction func thumbTintColorButtonPressed(_ sender: AnyObject) {
+    RappleColorPicker.openColorPallet(onViewController: self, origin: CGPoint(x: 50, y: 100), delegate: self, title: "Color", tag: 2)
   }
   
-  func colorSelected(color: UIColor, tag: Int) {
+  func colorSelected(_ color: UIColor, tag: Int) {
     switch tag {
     case 0:
       rangeSlider.trackTintColor = color
