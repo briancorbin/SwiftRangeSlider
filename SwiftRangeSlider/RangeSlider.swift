@@ -9,6 +9,12 @@
 import UIKit
 import QuartzCore
 
+enum Knob {
+  case Neither
+  case Lower
+  case Upper
+  case Both
+}
 
 ///Class that represents the RangeSlider object.
 @IBDesignable open class RangeSlider: UIControl {
@@ -21,8 +27,16 @@ import QuartzCore
       updateLayerFrames()
     }
   }
+  
   ///The maximum value selectable on the RangeSlider
   @IBInspectable open var maximumValue: Double = 1.0 {
+    didSet {
+      updateLayerFrames()
+    }
+  }
+  
+  ///The minimum difference in value between the knobs
+  @IBInspectable open var minimumDistance: Double = 0.0 {
     didSet {
       updateLayerFrames()
     }
@@ -97,6 +111,7 @@ import QuartzCore
   }
   
   var previousLocation = CGPoint()
+  var previouslySelectedKnob = Knob.Neither
   
   let trackLayer = RangeSliderTrackLayer()
   let lowerThumbLayer = RangeSliderThumbLayer()
@@ -173,7 +188,15 @@ import QuartzCore
     CATransaction.commit()
   }
   
+  
+  /**
+   Returns the position of the knob to be placed on the slider given the value it should be on the slider
+ */
   func positionForValue(_ value: Double) -> Double {
+    if maximumValue == minimumValue {
+      return 0
+    }
+    
     return Double(bounds.width - thumbWidth) * (value - minimumValue) /
       (maximumValue - minimumValue) + Double(thumbWidth / 2.0)
   }
@@ -190,13 +213,31 @@ import QuartzCore
   override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
     previousLocation = touch.location(in: self)
     
-    if lowerThumbLayer.frame.contains(previousLocation) {
+    if lowerThumbLayer.frame.contains(previousLocation) && upperThumbLayer.frame.contains(previousLocation) && (previouslySelectedKnob == Knob.Lower || previouslySelectedKnob == Knob.Neither) {
       lowerThumbLayer.highlighted = true
-    } else if upperThumbLayer.frame.contains(previousLocation) {
-      upperThumbLayer.highlighted = true
+      previouslySelectedKnob = Knob.Lower
+      return true
     }
     
-    return lowerThumbLayer.highlighted || upperThumbLayer.highlighted
+    if lowerThumbLayer.frame.contains(previousLocation) && upperThumbLayer.frame.contains(previousLocation) && previouslySelectedKnob == Knob.Upper {
+      upperThumbLayer.highlighted = true
+      previouslySelectedKnob = Knob.Upper
+      return true
+    }
+    
+    if lowerThumbLayer.frame.contains(previousLocation) {
+      lowerThumbLayer.highlighted = true
+      previouslySelectedKnob = Knob.Lower
+      return true
+    }
+    
+    if upperThumbLayer.frame.contains(previousLocation) {
+      upperThumbLayer.highlighted = true
+      previouslySelectedKnob = Knob.Upper
+      return true
+    }
+    
+    return false
   }
   
   /**
@@ -215,10 +256,10 @@ import QuartzCore
     
     if lowerThumbLayer.highlighted {
       lowerValue += deltaValue
-      lowerValue = boundValue(lowerValue, toLowerValue: minimumValue, upperValue: upperValue)
+      lowerValue = boundValue(lowerValue, toLowerValue: minimumValue, upperValue: (upperValue - minimumDistance))
     } else if upperThumbLayer.highlighted {
       upperValue += deltaValue
-      upperValue = boundValue(upperValue, toLowerValue: lowerValue, upperValue: maximumValue)
+      upperValue = boundValue(upperValue, toLowerValue: (lowerValue + minimumDistance), upperValue: maximumValue)
     }
     
     sendActions(for: .valueChanged)

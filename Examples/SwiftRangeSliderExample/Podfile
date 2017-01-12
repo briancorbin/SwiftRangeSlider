@@ -3,6 +3,6 @@
 use_frameworks!
 
 target 'SwiftRangeSliderExample' do
-  pod 'RappleColorPicker'
-  pod 'SwiftRangeSlider'
+    pod 'RappleColorPicker'
+    pod 'SwiftRangeSlider'
 end

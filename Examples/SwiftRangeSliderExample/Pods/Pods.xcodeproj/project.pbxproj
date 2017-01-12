@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08E10B739A8DA5CB5991F7C253A7931E /* RangeSliderTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2980F8BBAA35F048F53BBF59481C750 /* RangeSliderTrackLayer.swift */; };
-		0F2BD40322043C14AC594576CBDF2FA9 /* RappleColorPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB75DC8833BCA944F312692A08544FBF /* RappleColorPicker-dummy.m */; };
+		0F2BD40322043C14AC594576CBDF2FA9 /* RappleColorPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC32695EC537D7BE22A739A711C40E5 /* RappleColorPicker-dummy.m */; };
+		1D0C4F02BC99B15BD93FEB8689BDF8AC /* RangeSliderTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC1116A1B5C69A844EC2EBAB8895EB7 /* RangeSliderTrackLayer.swift */; };
 		20750B239D1A013BEE1940248FBE2CFE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */; };
+		2E89FE7FAF20110D089F8732FFA20E90 /* RangeSliderThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31CB979AD2D3871879A48F45D7A15A /* RangeSliderThumbLayer.swift */; };
 		559105C96E38090776ED728793C35C86 /* Pods-SwiftRangeSliderExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F039BB3377EE238747C39BCEC4AC5D2 /* Pods-SwiftRangeSliderExample-dummy.m */; };
-		6D1476C9EA9D09E217CB3D21BFED8BAF /* RappleColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26285BB10187B18239722DD4563D6150 /* RappleColorPickerViewController.swift */; };
-		7829F2A03C8FD12C51B7635B9353938A /* SwiftRangeSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 667C68C757E6502B140424DBB0974599 /* SwiftRangeSlider-dummy.m */; };
-		925A0F84FBCDF713FFFD66F73911F412 /* RangeSliderThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23739293B264E85025A4966547B86029 /* RangeSliderThumbLayer.swift */; };
-		9D8AC040B5A96178DEDC3D3734F5B0DB /* RappleColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C1803CC5759C025D6C6C3162A41C8 /* RappleColorPicker.swift */; };
+		6D1476C9EA9D09E217CB3D21BFED8BAF /* RappleColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47998FBB3D7D606F747CA93A5C47C42 /* RappleColorPickerViewController.swift */; };
+		9770BC12F6C32258301FB7D1F7261024 /* SwiftRangeSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E421ECD4B84D59DF95B8B710B67475F9 /* SwiftRangeSlider-dummy.m */; };
+		9D8AC040B5A96178DEDC3D3734F5B0DB /* RappleColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D392A73F6B57B389D345879BA1F5A6 /* RappleColorPicker.swift */; };
 		9DC84B4DC9D013B33973895AD36B5D6B /* Pods-SwiftRangeSliderExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DA87491650FE8A88FA63546A56B93BEE /* Pods-SwiftRangeSliderExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9F9184BBAAACF6E3E5EBED021A97D6C8 /* RappleColorPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DEF9A0D17DA15D13C37D3295A65C0FCF /* RappleColorPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9F9184BBAAACF6E3E5EBED021A97D6C8 /* RappleColorPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 76416E78FA7D9156A26C062422AAD77A /* RappleColorPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3B8C00A872511760D1F3FBB701CA9B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
 		AED8903A7F6C970E7A6C8821693FF5F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
 		B76288E7FE1C88C93E5A06D37AF1880C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
-		BAD2CCFF296AF1DCD88BCE6026880B77 /* SwiftRangeSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F10AEC26DB6BBBAF58DB87EF15FCDA28 /* SwiftRangeSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F473928E0F4F2F616F88BDD19F8C4769 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01831B61A8D7FDF76C16CB603E767CEA /* RangeSlider.swift */; };
+		BAD2CCFF296AF1DCD88BCE6026880B77 /* SwiftRangeSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A91DDBFCF8A290CF72FCA044A7B9A313 /* SwiftRangeSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C634CC175570793A9F6D568E7EC3E53F /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B68751CE3B5A2AFEFA0FDF65B0D4E71 /* RangeSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,38 +42,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01831B61A8D7FDF76C16CB603E767CEA /* RangeSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RangeSlider.swift; path = SwiftRangeSlider/RangeSlider.swift; sourceTree = "<group>"; };
-		041D590BE5BADBF1FA96227E05087D50 /* RappleColorPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = RappleColorPicker.modulemap; sourceTree = "<group>"; };
+		11A5824A1AD186053E449C1F0F1202D1 /* SwiftRangeSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftRangeSlider.xcconfig; sourceTree = "<group>"; };
+		1D0F476FE9EEC42D35C5F8465C7E1191 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EAC00B4303AF2EF67269883B0F39F79 /* Pods-SwiftRangeSliderExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftRangeSliderExample-frameworks.sh"; sourceTree = "<group>"; };
 		1F039BB3377EE238747C39BCEC4AC5D2 /* Pods-SwiftRangeSliderExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftRangeSliderExample-dummy.m"; sourceTree = "<group>"; };
-		1F4E240A5836D4C1C47780FAE505725B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20E05F3DA36BC6D224BE328CE03C6C24 /* Pods-SwiftRangeSliderExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftRangeSliderExample-resources.sh"; sourceTree = "<group>"; };
-		23739293B264E85025A4966547B86029 /* RangeSliderThumbLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RangeSliderThumbLayer.swift; path = SwiftRangeSlider/RangeSliderThumbLayer.swift; sourceTree = "<group>"; };
-		26285BB10187B18239722DD4563D6150 /* RappleColorPickerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RappleColorPickerViewController.swift; path = Pod/Classes/RappleColorPickerViewController.swift; sourceTree = "<group>"; };
-		26EF478AC5C8500E24BEECD0CC2A52EC /* SwiftRangeSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftRangeSlider.modulemap; sourceTree = "<group>"; };
-		36560CC16451B3B4F918CDE4B2EE2269 /* Pods-SwiftRangeSliderExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftRangeSliderExample.modulemap"; sourceTree = "<group>"; };
+		2606037036AB9EDBE7D4DBAEA9694EA8 /* RappleColorPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RappleColorPicker.xcconfig; sourceTree = "<group>"; };
+		36560CC16451B3B4F918CDE4B2EE2269 /* Pods-SwiftRangeSliderExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SwiftRangeSliderExample.modulemap"; sourceTree = "<group>"; };
+		3B68751CE3B5A2AFEFA0FDF65B0D4E71 /* RangeSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
+		3B89F74B23870A729C8643E3389CD95D /* RappleColorPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RappleColorPicker-prefix.pch"; sourceTree = "<group>"; };
 		40FA3DB35DAF15292BBA53A190BE1A47 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47FD74DB82FD49226475B34AA3B2E657 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51680B88FB590C4FF2AFF7C862BA3C30 /* SwiftRangeSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftRangeSlider-prefix.pch"; sourceTree = "<group>"; };
 		616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		667C68C757E6502B140424DBB0974599 /* SwiftRangeSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftRangeSlider-dummy.m"; sourceTree = "<group>"; };
 		682C372EB7226868422C6536FD8D2BB6 /* Pods-SwiftRangeSliderExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftRangeSliderExample.release.xcconfig"; sourceTree = "<group>"; };
 		71FD3CB1B697FE995A34B5C1D2882F3F /* Pods-SwiftRangeSliderExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftRangeSliderExample-acknowledgements.markdown"; sourceTree = "<group>"; };
-		72BCEBE6DCD58900D494B8C03A2012D4 /* RappleColorPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RappleColorPicker-prefix.pch"; sourceTree = "<group>"; };
-		7D3BE9CF47F0EB90587CD79B53EB0AC0 /* RappleColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RappleColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76416E78FA7D9156A26C062422AAD77A /* RappleColorPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RappleColorPicker-umbrella.h"; sourceTree = "<group>"; };
+		7D3BE9CF47F0EB90587CD79B53EB0AC0 /* RappleColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RappleColorPicker.framework; path = RappleColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		8AC9FB47F3DE22A969AA4791B471CB76 /* SwiftRangeSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftRangeSlider.xcconfig; sourceTree = "<group>"; };
-		918C1803CC5759C025D6C6C3162A41C8 /* RappleColorPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RappleColorPicker.swift; path = Pod/Classes/RappleColorPicker.swift; sourceTree = "<group>"; };
-		9316738A356F2F9C3D87467A709D0757 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9D0BBB3347D65FA489A1D2DB227EFC36 /* RappleColorPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RappleColorPicker.xcconfig; sourceTree = "<group>"; };
-		A2980F8BBAA35F048F53BBF59481C750 /* RangeSliderTrackLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RangeSliderTrackLayer.swift; path = SwiftRangeSlider/RangeSliderTrackLayer.swift; sourceTree = "<group>"; };
-		A41FDEB7C15DDD47BB8CCB39630FDC5D /* SwiftRangeSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftRangeSlider-prefix.pch"; sourceTree = "<group>"; };
-		A4FDAF6BD7B28ADAAECF15C436EB7C54 /* Pods_SwiftRangeSliderExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftRangeSliderExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84D392A73F6B57B389D345879BA1F5A6 /* RappleColorPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RappleColorPicker.swift; path = Pod/Classes/RappleColorPicker.swift; sourceTree = "<group>"; };
+		8AC32695EC537D7BE22A739A711C40E5 /* RappleColorPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RappleColorPicker-dummy.m"; sourceTree = "<group>"; };
+		8FC1116A1B5C69A844EC2EBAB8895EB7 /* RangeSliderTrackLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RangeSliderTrackLayer.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A4FDAF6BD7B28ADAAECF15C436EB7C54 /* Pods_SwiftRangeSliderExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftRangeSliderExample.framework; path = "Pods-SwiftRangeSliderExample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91DDBFCF8A290CF72FCA044A7B9A313 /* SwiftRangeSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftRangeSlider-umbrella.h"; sourceTree = "<group>"; };
 		AFC7CEF5EB180349E8CC0B2090B15CCA /* Pods-SwiftRangeSliderExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftRangeSliderExample-acknowledgements.plist"; sourceTree = "<group>"; };
 		DA87491650FE8A88FA63546A56B93BEE /* Pods-SwiftRangeSliderExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftRangeSliderExample-umbrella.h"; sourceTree = "<group>"; };
-		DB75DC8833BCA944F312692A08544FBF /* RappleColorPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RappleColorPicker-dummy.m"; sourceTree = "<group>"; };
-		DEF9A0D17DA15D13C37D3295A65C0FCF /* RappleColorPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RappleColorPicker-umbrella.h"; sourceTree = "<group>"; };
-		E60DEDDFD033499A0F1D7EB664C96933 /* SwiftRangeSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftRangeSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F10AEC26DB6BBBAF58DB87EF15FCDA28 /* SwiftRangeSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftRangeSlider-umbrella.h"; sourceTree = "<group>"; };
+		DB31CB979AD2D3871879A48F45D7A15A /* RangeSliderThumbLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RangeSliderThumbLayer.swift; sourceTree = "<group>"; };
+		E421ECD4B84D59DF95B8B710B67475F9 /* SwiftRangeSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftRangeSlider-dummy.m"; sourceTree = "<group>"; };
+		E47998FBB3D7D606F747CA93A5C47C42 /* RappleColorPickerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RappleColorPickerViewController.swift; path = Pod/Classes/RappleColorPickerViewController.swift; sourceTree = "<group>"; };
+		E60DEDDFD033499A0F1D7EB664C96933 /* SwiftRangeSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftRangeSlider.framework; path = SwiftRangeSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED2ECE788318CD6A5C13F6399903BFF2 /* RappleColorPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = RappleColorPicker.modulemap; sourceTree = "<group>"; };
+		FEC62B544504F83D49F41901AABCEC82 /* SwiftRangeSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftRangeSlider.modulemap; sourceTree = "<group>"; };
 		FF4547ECF19D3F3C1DB979C967898347 /* Pods-SwiftRangeSliderExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftRangeSliderExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,15 +106,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3120B83DBC73975D0D090A81B41B29E1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CE032B0AA27035D1B7955BD82DAA1651 /* RappleColorPicker */,
-				4C4BC90C84CAC12830D3001C4909E6BA /* SwiftRangeSlider */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,37 +114,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4C4BC90C84CAC12830D3001C4909E6BA /* SwiftRangeSlider */ = {
-			isa = PBXGroup;
-			children = (
-				01831B61A8D7FDF76C16CB603E767CEA /* RangeSlider.swift */,
-				23739293B264E85025A4966547B86029 /* RangeSliderThumbLayer.swift */,
-				A2980F8BBAA35F048F53BBF59481C750 /* RangeSliderTrackLayer.swift */,
-				646A8C218F36D459EF8AF22B8F30C314 /* Support Files */,
-			);
-			path = SwiftRangeSlider;
-			sourceTree = "<group>";
-		};
 		617216A8760A5916ACA8E1EA7B0A69B5 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				6CDA2D448C2BF0C185FE341545D8D0D5 /* Pods-SwiftRangeSliderExample */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		646A8C218F36D459EF8AF22B8F30C314 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				9316738A356F2F9C3D87467A709D0757 /* Info.plist */,
-				26EF478AC5C8500E24BEECD0CC2A52EC /* SwiftRangeSlider.modulemap */,
-				8AC9FB47F3DE22A969AA4791B471CB76 /* SwiftRangeSlider.xcconfig */,
-				667C68C757E6502B140424DBB0974599 /* SwiftRangeSlider-dummy.m */,
-				A41FDEB7C15DDD47BB8CCB39630FDC5D /* SwiftRangeSlider-prefix.pch */,
-				F10AEC26DB6BBBAF58DB87EF15FCDA28 /* SwiftRangeSlider-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftRangeSlider";
 			sourceTree = "<group>";
 		};
 		6CDA2D448C2BF0C185FE341545D8D0D5 /* Pods-SwiftRangeSliderExample */ = {
@@ -174,39 +140,73 @@
 			path = "Target Support Files/Pods-SwiftRangeSliderExample";
 			sourceTree = "<group>";
 		};
+		723FA949CC742E3E4F6F7CBC8E5313D4 /* SwiftRangeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				3B68751CE3B5A2AFEFA0FDF65B0D4E71 /* RangeSlider.swift */,
+				DB31CB979AD2D3871879A48F45D7A15A /* RangeSliderThumbLayer.swift */,
+				8FC1116A1B5C69A844EC2EBAB8895EB7 /* RangeSliderTrackLayer.swift */,
+			);
+			name = SwiftRangeSlider;
+			path = SwiftRangeSlider;
+			sourceTree = "<group>";
+		};
+		77F8F1F1E3BA4F8F520C05DC9CC3A8D3 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8AE69E11B7CECC0EB0862E054AE5EE68 /* SwiftRangeSlider */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				77F8F1F1E3BA4F8F520C05DC9CC3A8D3 /* Development Pods */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				3120B83DBC73975D0D090A81B41B29E1 /* Pods */,
+				EBF38D0D64519C3CE392592E345AE434 /* Pods */,
 				D31D5867817CE6059A25C7D969E7DEF8 /* Products */,
 				617216A8760A5916ACA8E1EA7B0A69B5 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		94FC928B90B220C5CCDFFE2B4583B052 /* Support Files */ = {
+		8AE69E11B7CECC0EB0862E054AE5EE68 /* SwiftRangeSlider */ = {
 			isa = PBXGroup;
 			children = (
-				1F4E240A5836D4C1C47780FAE505725B /* Info.plist */,
-				041D590BE5BADBF1FA96227E05087D50 /* RappleColorPicker.modulemap */,
-				9D0BBB3347D65FA489A1D2DB227EFC36 /* RappleColorPicker.xcconfig */,
-				DB75DC8833BCA944F312692A08544FBF /* RappleColorPicker-dummy.m */,
-				72BCEBE6DCD58900D494B8C03A2012D4 /* RappleColorPicker-prefix.pch */,
-				DEF9A0D17DA15D13C37D3295A65C0FCF /* RappleColorPicker-umbrella.h */,
+				8B7F1965CF521D3EB96BFEDAEA0A41E9 /* Support Files */,
+				723FA949CC742E3E4F6F7CBC8E5313D4 /* SwiftRangeSlider */,
+			);
+			name = SwiftRangeSlider;
+			path = /Users/briancorbin/Documents/Programming/Mobile/Pods/SwiftRangeSlider;
+			sourceTree = "<absolute>";
+		};
+		8B7F1965CF521D3EB96BFEDAEA0A41E9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				47FD74DB82FD49226475B34AA3B2E657 /* Info.plist */,
+				FEC62B544504F83D49F41901AABCEC82 /* SwiftRangeSlider.modulemap */,
+				11A5824A1AD186053E449C1F0F1202D1 /* SwiftRangeSlider.xcconfig */,
+				E421ECD4B84D59DF95B8B710B67475F9 /* SwiftRangeSlider-dummy.m */,
+				51680B88FB590C4FF2AFF7C862BA3C30 /* SwiftRangeSlider-prefix.pch */,
+				A91DDBFCF8A290CF72FCA044A7B9A313 /* SwiftRangeSlider-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Examples/SwiftRangeSliderExample/Pods/Target Support Files/SwiftRangeSlider";
+			sourceTree = "<group>";
+		};
+		B04E4D4922F8E72AC1CB9F3F3B7DDB7A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D0F476FE9EEC42D35C5F8465C7E1191 /* Info.plist */,
+				ED2ECE788318CD6A5C13F6399903BFF2 /* RappleColorPicker.modulemap */,
+				2606037036AB9EDBE7D4DBAEA9694EA8 /* RappleColorPicker.xcconfig */,
+				8AC32695EC537D7BE22A739A711C40E5 /* RappleColorPicker-dummy.m */,
+				3B89F74B23870A729C8643E3389CD95D /* RappleColorPicker-prefix.pch */,
+				76416E78FA7D9156A26C062422AAD77A /* RappleColorPicker-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/RappleColorPicker";
-			sourceTree = "<group>";
-		};
-		CE032B0AA27035D1B7955BD82DAA1651 /* RappleColorPicker */ = {
-			isa = PBXGroup;
-			children = (
-				918C1803CC5759C025D6C6C3162A41C8 /* RappleColorPicker.swift */,
-				26285BB10187B18239722DD4563D6150 /* RappleColorPickerViewController.swift */,
-				94FC928B90B220C5CCDFFE2B4583B052 /* Support Files */,
-			);
-			path = RappleColorPicker;
 			sourceTree = "<group>";
 		};
 		D31D5867817CE6059A25C7D969E7DEF8 /* Products */ = {
@@ -226,6 +226,25 @@
 				7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		E7119FEC132BD49DF148E554CCB9E5C5 /* RappleColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				84D392A73F6B57B389D345879BA1F5A6 /* RappleColorPicker.swift */,
+				E47998FBB3D7D606F747CA93A5C47C42 /* RappleColorPickerViewController.swift */,
+				B04E4D4922F8E72AC1CB9F3F3B7DDB7A /* Support Files */,
+			);
+			name = RappleColorPicker;
+			path = RappleColorPicker;
+			sourceTree = "<group>";
+		};
+		EBF38D0D64519C3CE392592E345AE434 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E7119FEC132BD49DF148E554CCB9E5C5 /* RappleColorPicker */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,7 +317,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BC88D85DBF5209D00C590783A30F169 /* Build configuration list for PBXNativeTarget "SwiftRangeSlider" */;
 			buildPhases = (
-				D33D604418820AED71956FC29AFA7D64 /* Sources */,
+				4E519E7529AA991F3ECCAA5B98C16ECB /* Sources */,
 				F150E17404DF9730662E85DD02BD2500 /* Frameworks */,
 				229418264FA233C8247ADBD0A5FA52D9 /* Headers */,
 			);
@@ -319,17 +338,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					0B4BA581A0C940B36F7032EF4FA27096 = {
-						LastSwiftMigration = 0820;
-					};
-					1D3B7AB1C012080838B02EAB0F81BF0F = {
-						LastSwiftMigration = 0820;
-					};
-					8D0A821CA52BE39C8DF7064FAA00FE75 = {
-						LastSwiftMigration = 0820;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -351,6 +359,17 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4E519E7529AA991F3ECCAA5B98C16ECB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C634CC175570793A9F6D568E7EC3E53F /* RangeSlider.swift in Sources */,
+				2E89FE7FAF20110D089F8732FFA20E90 /* RangeSliderThumbLayer.swift in Sources */,
+				1D0C4F02BC99B15BD93FEB8689BDF8AC /* RangeSliderTrackLayer.swift in Sources */,
+				9770BC12F6C32258301FB7D1F7261024 /* SwiftRangeSlider-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95C6184FF8CC9858E4AA2508497F3F8C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -366,17 +385,6 @@
 				0F2BD40322043C14AC594576CBDF2FA9 /* RappleColorPicker-dummy.m in Sources */,
 				9D8AC040B5A96178DEDC3D3734F5B0DB /* RappleColorPicker.swift in Sources */,
 				6D1476C9EA9D09E217CB3D21BFED8BAF /* RappleColorPickerViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D33D604418820AED71956FC29AFA7D64 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F473928E0F4F2F616F88BDD19F8C4769 /* RangeSlider.swift in Sources */,
-				925A0F84FBCDF713FFFD66F73911F412 /* RangeSliderThumbLayer.swift in Sources */,
-				08E10B739A8DA5CB5991F7C253A7931E /* RangeSliderTrackLayer.swift in Sources */,
-				7829F2A03C8FD12C51B7635B9353938A /* SwiftRangeSlider-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +450,71 @@
 			};
 			name = Debug;
 		};
+		14ABD66092B797F14E58666C7E40D7E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2606037036AB9EDBE7D4DBAEA9694EA8 /* RappleColorPicker.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RappleColorPicker/RappleColorPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RappleColorPicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RappleColorPicker/RappleColorPicker.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = RappleColorPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1EC5ECFC28B41362992E3794A454DC91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2606037036AB9EDBE7D4DBAEA9694EA8 /* RappleColorPicker.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RappleColorPicker/RappleColorPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RappleColorPicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RappleColorPicker/RappleColorPicker.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = RappleColorPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		48566088856984673EDC5F341A6B143C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 682C372EB7226868422C6536FD8D2BB6 /* Pods-SwiftRangeSliderExample.release.xcconfig */;
@@ -471,45 +544,11 @@
 				PRODUCT_NAME = Pods_SwiftRangeSliderExample;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		6748B3DA2C03DEE9A69ACCEB458B49DF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AC9FB47F3DE22A969AA4791B471CB76 /* SwiftRangeSlider.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftRangeSlider/SwiftRangeSlider-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftRangeSlider/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftRangeSlider/SwiftRangeSlider.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwiftRangeSlider;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -551,41 +590,9 @@
 			};
 			name = Release;
 		};
-		917D9A7AD903C566273F45CA56F68EFC /* Release */ = {
+		C0C85B883D774AECB8760F85AF992AAD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D0BBB3347D65FA489A1D2DB227EFC36 /* RappleColorPicker.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/RappleColorPicker/RappleColorPicker-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RappleColorPicker/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/RappleColorPicker/RappleColorPicker.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = RappleColorPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B98E9CB0D242F2D5ED209A7336A2DF25 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D0BBB3347D65FA489A1D2DB227EFC36 /* RappleColorPicker.xcconfig */;
+			baseConfigurationReference = 11A5824A1AD186053E449C1F0F1202D1 /* SwiftRangeSlider.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -598,14 +605,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/RappleColorPicker/RappleColorPicker-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RappleColorPicker/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftRangeSlider/SwiftRangeSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftRangeSlider/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/RappleColorPicker/RappleColorPicker.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SwiftRangeSlider/SwiftRangeSlider.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = RappleColorPicker;
+				PRODUCT_NAME = SwiftRangeSlider;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -615,6 +622,38 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		D895C6167FB183C63EC4030B0C87BB84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11A5824A1AD186053E449C1F0F1202D1 /* SwiftRangeSlider.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftRangeSlider/SwiftRangeSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftRangeSlider/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftRangeSlider/SwiftRangeSlider.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftRangeSlider;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		EE69558A00CB2A2A659AD4F95573B215 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -646,44 +685,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		FFED694CCA9272B3976F99321CB5F69A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AC9FB47F3DE22A969AA4791B471CB76 /* SwiftRangeSlider.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftRangeSlider/SwiftRangeSlider-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftRangeSlider/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftRangeSlider/SwiftRangeSlider.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftRangeSlider;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -709,8 +715,8 @@
 		8BC88D85DBF5209D00C590783A30F169 /* Build configuration list for PBXNativeTarget "SwiftRangeSlider" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6748B3DA2C03DEE9A69ACCEB458B49DF /* Debug */,
-				FFED694CCA9272B3976F99321CB5F69A /* Release */,
+				C0C85B883D774AECB8760F85AF992AAD /* Debug */,
+				D895C6167FB183C63EC4030B0C87BB84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -718,8 +724,8 @@
 		ADC47520729B2E2851E6D1F7DB7D2682 /* Build configuration list for PBXNativeTarget "RappleColorPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B98E9CB0D242F2D5ED209A7336A2DF25 /* Debug */,
-				917D9A7AD903C566273F45CA56F68EFC /* Release */,
+				14ABD66092B797F14E58666C7E40D7E3 /* Debug */,
+				1EC5ECFC28B41362992E3794A454DC91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
