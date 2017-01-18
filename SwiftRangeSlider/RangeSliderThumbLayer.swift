@@ -12,6 +12,10 @@ import QuartzCore
 class RangeSliderThumbLayer: CALayer {
   var highlighted: Bool = false {
     didSet {
+      if let superLayer = superlayer, highlighted {
+        removeFromSuperlayer()
+        superLayer.addSublayer(self)
+      }
       setNeedsDisplay()
     }
   }
