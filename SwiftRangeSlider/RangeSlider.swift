@@ -163,7 +163,12 @@ enum Knob {
     upperThumbLayer.contentsScale = UIScreen.main.scale
     layer.addSublayer(upperThumbLayer)
   }
-  
+
+  override open func layoutSubviews() {
+    super.layoutSubviews()
+    updateLayerFrames()
+  }
+
   // MARK: Member Functions
   
   
