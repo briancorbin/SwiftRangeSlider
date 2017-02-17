@@ -237,7 +237,15 @@ enum Knob {
       return true
     }
     
-    return false
+    // GCS to get both thumbs to move together.
+    lowerThumbLayer.highlighted = true
+    upperThumbLayer.highlighted = true
+    previouslySelectedKnob = Knob.Neither
+    return true
+
+    //return false
+    // End of GCS modification...
+    
   }
   
   /**
@@ -254,8 +262,24 @@ enum Knob {
     
     previousLocation = location
     
-    if lowerThumbLayer.highlighted {
-      lowerValue += deltaValue
+// GCS modification to slide whole range along
+    if lowerThumbLayer.highlighted && upperThumbLayer.highlighted {
+        let gap = upperValue - lowerValue
+        if (deltaValue > 0) {
+            upperValue += deltaValue
+            upperValue = boundValue(upperValue, toLowerValue: (lowerValue + max(minimumDistance, gap)), upperValue: maximumValue)
+            lowerValue += deltaValue
+            lowerValue = boundValue(lowerValue, toLowerValue: minimumValue, upperValue: (upperValue - max(minimumDistance, gap)))
+        } else {
+            lowerValue += deltaValue
+            lowerValue = boundValue(lowerValue, toLowerValue: minimumValue, upperValue: (upperValue - max(minimumDistance, gap)))
+            upperValue += deltaValue
+            upperValue = boundValue(upperValue, toLowerValue: (lowerValue + max(minimumDistance, gap)), upperValue: maximumValue)
+            
+        }
+    } else if lowerThumbLayer.highlighted {
+// End of GCS modification
+        lowerValue += deltaValue
       lowerValue = boundValue(lowerValue, toLowerValue: minimumValue, upperValue: (upperValue - minimumDistance))
     } else if upperThumbLayer.highlighted {
       upperValue += deltaValue
