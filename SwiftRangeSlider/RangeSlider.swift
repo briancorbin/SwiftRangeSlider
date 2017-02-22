@@ -110,6 +110,9 @@ enum Knob {
     }
   }
   
+  ///Whether or not you can drag the highligh area to move both knobs at the same time.
+  @IBInspectable open var dragTrack: Bool = false
+  
   var previousLocation = CGPoint()
   var previouslySelectedKnob = Knob.Neither
   
@@ -237,6 +240,12 @@ enum Knob {
       return true
     }
     
+    if (dragTrack) {
+      upperThumbLayer.highlighted = true
+      lowerThumbLayer.highlighted = true
+      return true
+    }
+    
     return false
   }
   
@@ -254,7 +263,21 @@ enum Knob {
     
     previousLocation = location
     
-    if lowerThumbLayer.highlighted {
+    if lowerThumbLayer.highlighted && upperThumbLayer.highlighted {
+      let gap = upperValue - lowerValue
+      if (deltaValue > 0) {
+        upperValue += deltaValue
+        upperValue = boundValue(upperValue, toLowerValue: (lowerValue + max(minimumDistance, gap)), upperValue: maximumValue)
+        lowerValue += deltaValue
+        lowerValue = boundValue(lowerValue, toLowerValue: minimumValue, upperValue: (upperValue - max(minimumDistance, gap)))
+      } else {
+        lowerValue += deltaValue
+        lowerValue = boundValue(lowerValue, toLowerValue: minimumValue, upperValue: (upperValue - max(minimumDistance, gap)))
+        upperValue += deltaValue
+        upperValue = boundValue(upperValue, toLowerValue: (lowerValue + max(minimumDistance, gap)), upperValue: maximumValue)
+      }
+    }
+    else if lowerThumbLayer.highlighted {
       lowerValue += deltaValue
       lowerValue = boundValue(lowerValue, toLowerValue: minimumValue, upperValue: (upperValue - minimumDistance))
     } else if upperThumbLayer.highlighted {
