@@ -56,6 +56,14 @@ enum Knob {
     }
   }
   
+  ///The minimum value a knob can change. Default and minimum of 0
+  @IBInspectable open var stepValue: Double = 0.0 {
+    didSet {
+      stepValue = stepValue < 0 ? 0 : stepValue
+      updateLayerFrames()
+    }
+  }
+  
   ///The color of the track bar outside of the selected range
   @IBInspectable open var trackTintColor: UIColor = UIColor(white: 0.9, alpha: 1.0) {
     didSet {
@@ -259,7 +267,15 @@ enum Knob {
     let location = touch.location(in: self)
     
     let deltaLocation = Double(location.x - previousLocation.x)
-    let deltaValue = (maximumValue - minimumValue) * deltaLocation / Double(bounds.width - thumbWidth)
+    var deltaValue = (maximumValue - minimumValue) * deltaLocation / Double(bounds.width - thumbWidth)
+    
+    if abs(deltaValue) < stepValue {
+      return true
+    }
+    
+    if stepValue != 0 {
+      deltaValue = deltaValue < 0 ? -stepValue : stepValue
+    }
     
     previousLocation = location
     
