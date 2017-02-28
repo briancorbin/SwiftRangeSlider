@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class RangeSliderTrackLayer: CALayer {
+class RangeSliderTrack: CALayer {
   weak var rangeSlider: RangeSlider?
   
   override func draw(in ctx: CGContext) {

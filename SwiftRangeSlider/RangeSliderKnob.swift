@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class RangeSliderKnobLayer: CALayer {
+class RangeSliderKnob: CALayer {
   var highlighted: Bool = false {
     didSet {
       if let superLayer = superlayer, highlighted {

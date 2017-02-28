@@ -29,7 +29,7 @@ enum Knob {
   }
   
   ///The maximum value selectable on the RangeSlider
-  @IBInspectable open var maximumValue: Double = 1.0 {
+  @IBInspectable open var maximumValue: Double = 10.0 {
     didSet {
       updateTrackLayerFrameAndKnobPositions()
     }
@@ -43,14 +43,14 @@ enum Knob {
   }
   
   ///The current lower value selected on the RangeSlider
-  @IBInspectable open var lowerValue: Double = 0.2 {
+  @IBInspectable open var lowerValue: Double = 2.0 {
     didSet {
       updateTrackLayerFrameAndKnobPositions()
     }
   }
   
   ///The current upper value selected on the RangeSlider
-  @IBInspectable open var upperValue: Double = 0.8 {
+  @IBInspectable open var upperValue: Double = 8.0 {
     didSet {
       updateTrackLayerFrameAndKnobPositions()
     }
@@ -66,14 +66,14 @@ enum Knob {
   ///The color of the track bar outside of the selected range
   @IBInspectable open var trackTintColor: UIColor = UIColor(white: 0.9, alpha: 1.0) {
     didSet {
-      trackLayer.setNeedsDisplay()
+      track.setNeedsDisplay()
     }
   }
   
   ///The color of the track bar within the selected range
   @IBInspectable open var trackHighlightTintColor: UIColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0) {
     didSet {
-      trackLayer.setNeedsDisplay()
+      track.setNeedsDisplay()
     }
   }
   
@@ -91,12 +91,15 @@ enum Knob {
     }
   }
   
+  ///Whether or not you can drag the highligh area to move both Knobs at the same time.
+  @IBInspectable open var dragTrack: Bool = false
+  
   ///The diameter of the knob. '0.95' by default.
   @IBInspectable open var knobSize: CGFloat = 0.95 {
     didSet {
       updateLayerFramesAndPositions()
-      lowerKnobLayer.setNeedsDisplay()
-      upperKnobLayer.setNeedsDisplay()
+      lowerKnob.setNeedsDisplay()
+      upperKnob.setNeedsDisplay()
     }
   }
   
@@ -104,69 +107,93 @@ enum Knob {
   @IBInspectable open var trueKnobSize: Bool = false {
     didSet {
       updateLayerFramesAndPositions()
-      lowerKnobLayer.setNeedsDisplay()
-      upperKnobLayer.setNeedsDisplay()
+      lowerKnob.setNeedsDisplay()
+      upperKnob.setNeedsDisplay()
     }
   }
   
   ///The color of the slider buttons. `White` by default.
   @IBInspectable open var knobTintColor: UIColor = UIColor.white {
     didSet {
-      lowerKnobLayer.setNeedsDisplay()
-      upperKnobLayer.setNeedsDisplay()
+      lowerKnob.setNeedsDisplay()
+      upperKnob.setNeedsDisplay()
     }
   }
   
   ///The thickness of the slider buttons border. `0.1` by default.
   @IBInspectable open var knobBorderThickness: CGFloat = 0.1 {
     didSet {
-      lowerKnobLayer.setNeedsDisplay()
-      upperKnobLayer.setNeedsDisplay()
+      lowerKnob.setNeedsDisplay()
+      upperKnob.setNeedsDisplay()
     }
   }
   
   ///The color of the knob borders. `UIColor.gray` by default.
   @IBInspectable open var knobBorderTintColor: UIColor = UIColor.gray {
     didSet {
-      lowerKnobLayer.setNeedsDisplay()
-      upperKnobLayer.setNeedsLayout()
+      lowerKnob.setNeedsDisplay()
+      upperKnob.setNeedsLayout()
     }
   }
   
   ///The size to multiply the knob by on selection. `1.0` by default.
   @IBInspectable open var selectedKnobDiameterMultiplier: CGFloat = 1.0 {
     didSet {
-      lowerKnobLayer.setNeedsDisplay()
-      upperKnobLayer.setNeedsLayout()
+      lowerKnob.setNeedsDisplay()
+      upperKnob.setNeedsLayout()
     }
   }
   
   ///Whether or not the slider buttons have a shadow. `true` by default.
   @IBInspectable open var knobHasShadow: Bool = true {
     didSet{
-      lowerKnobLayer.setNeedsDisplay()
-      upperKnobLayer.setNeedsDisplay()
+      lowerKnob.setNeedsDisplay()
+      upperKnob.setNeedsDisplay()
     }
   }
   
   ///The curvaceousness of the ends of the track bar and the slider buttons. `1.0` by default.
   @IBInspectable open var curvaceousness: CGFloat = 1.0 {
     didSet {
-      trackLayer.setNeedsDisplay()
-      lowerKnobLayer.setNeedsDisplay()
-      upperKnobLayer.setNeedsDisplay()
+      track.setNeedsDisplay()
+      lowerKnob.setNeedsDisplay()
+      upperKnob.setNeedsDisplay()
     }
   }
   
-  ///Whether or not you can drag the highligh area to move both Knobs at the same time.
-  @IBInspectable open var dragTrack: Bool = false
+  ///The font size of the labels. `12.0` by default.
+  @IBInspectable open var labelFontSize: CGFloat = 12.0 {
+    didSet {
+      updateLabelText()
+      updateLabelPositions()
+    }
+  }
+  
+  ///The color of the labels. `UIColor.clear` by default.
+  @IBInspectable open var labelColor: UIColor = UIColor.clear {
+    didSet {
+      updateLabelText()
+    }
+  }
+  
+  ///Whether the labels are hidden or not. `false` by default.
+  @IBInspectable open var hideLabels: Bool = false {
+    didSet {
+      updateLabelText()
+    }
+  }
   
   var previousLocation = CGPoint()
   var previouslySelectedKnob = Knob.Neither
   
-  let trackLayer = RangeSliderTrackLayer()
-  let lowerKnobLayer = RangeSliderKnobLayer()
-  let upperKnobLayer = RangeSliderKnobLayer()
+  var lowerLabelTextSize: CGSize!
+  var upperLabelTextSize: CGSize!
+  
+  let track = RangeSliderTrack()
+  let lowerKnob = RangeSliderKnob()
+  let upperKnob = RangeSliderKnob()
+  let lowerLabel = CATextLayer()
+  let upperLabel = CATextLayer()
   
   var TrackThickness: CGFloat {
     get {
@@ -183,7 +210,7 @@ enum Knob {
   ///The frame of the `RangeSlider` instance.
   override open var frame: CGRect {
     didSet {
-      updateTrackLayerFrameAndKnobPositions()
+      updateLayerFramesAndPositions()
     }
   }
   
@@ -210,79 +237,119 @@ enum Knob {
   }
   
   func addContentViews(){
-    trackLayer.rangeSlider = self
-    trackLayer.contentsScale = UIScreen.main.scale
-    layer.addSublayer(trackLayer)
+    track.rangeSlider = self
+    track.contentsScale = UIScreen.main.scale
+    layer.addSublayer(track)
     
-    lowerKnobLayer.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
-    lowerKnobLayer.rangeSlider = self
-    lowerKnobLayer.contentsScale = UIScreen.main.scale
-    layer.addSublayer(lowerKnobLayer)
+    lowerKnob.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
+    lowerKnob.rangeSlider = self
+    lowerKnob.contentsScale = UIScreen.main.scale
+    layer.addSublayer(lowerKnob)
     
-    upperKnobLayer.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
-    upperKnobLayer.rangeSlider = self
-    upperKnobLayer.contentsScale = UIScreen.main.scale
-    layer.addSublayer(upperKnobLayer)
+    upperKnob.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
+    upperKnob.rangeSlider = self
+    upperKnob.contentsScale = UIScreen.main.scale
+    layer.addSublayer(upperKnob)
+    
+    lowerLabel.alignmentMode = kCAAlignmentCenter
+    lowerLabel.fontSize = labelFontSize
+    lowerLabel.frame = CGRect(x: 0, y: 0, width: 75, height: labelFontSize)
+    lowerLabel.contentsScale = UIScreen.main.scale
+    lowerLabel.font = UIFont.systemFont(ofSize: labelFontSize)
+    lowerLabel.foregroundColor = labelColor.cgColor
+    layer.addSublayer(lowerLabel)
+    
+    upperLabel.alignmentMode = kCAAlignmentCenter
+    upperLabel.fontSize = labelFontSize
+    upperLabel.frame = CGRect(x: 0, y: 0, width: 75, height: labelFontSize)
+    upperLabel.contentsScale = UIScreen.main.scale
+    upperLabel.font = UIFont.systemFont(ofSize: labelFontSize)
+    upperLabel.foregroundColor = labelColor.cgColor
+    layer.addSublayer(upperLabel)
   }
   
   // MARK: Member Functions
   
   open func updateLayerFramesAndPositions() {
-    lowerKnobLayer.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
-    upperKnobLayer.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
+    lowerKnob.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
+    upperKnob.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
     updateTrackLayerFrameAndKnobPositions()
   }
   
-  ///Updates all of the layer frames that make up the `RangeSlider` instance.
+  ///Updates the tracks layer frame and the knobs positions.
   open func updateTrackLayerFrameAndKnobPositions() {
     CATransaction.begin()
     CATransaction.setDisableActions(true)
     let newTrackDy = (frame.height - TrackThickness) / 2
-    trackLayer.frame = CGRect(x: 0, y: newTrackDy, width: frame.width, height: TrackThickness)
-    trackLayer.setNeedsDisplay()
+    track.frame = CGRect(x: 0, y: newTrackDy, width: frame.width, height: TrackThickness)
+    track.setNeedsDisplay()
     
     let lowerKnobCenter = positionForValue(lowerValue)
-    lowerKnobLayer.position = lowerKnobCenter
-    lowerKnobLayer.setNeedsDisplay()
+    lowerKnob.position = lowerKnobCenter
+    lowerKnob.setNeedsDisplay()
     
     let upperKnobCenter = positionForValue(upperValue)
-    upperKnobLayer.position = upperKnobCenter
-    upperKnobLayer.setNeedsDisplay()
+    upperKnob.position = upperKnobCenter
+    upperKnob.setNeedsDisplay()
+    
+    updateLabelText()
+    updateLabelPositions()
     CATransaction.commit()
   }
   
-  func percentageForValue(_ value: Double) -> CGFloat {
-    if minimumValue == maximumValue {
-      return 0
+  ///Updates the labels text content.
+  open func updateLabelText() {
+    if hideLabels {
+      lowerLabel.string = ""
+      upperLabel.string = ""
+      return
     }
     
-    let maxMinDiff = maximumValue - minimumValue
-    let valueSubtracted = value - minimumValue
+    let numberFormatter = NumberFormatter()
+    numberFormatter.numberStyle = NumberFormatter.Style.decimal
+    numberFormatter.maximumFractionDigits = 0
     
-    return CGFloat(valueSubtracted / maxMinDiff)
+    lowerLabel.fontSize = labelFontSize
+    upperLabel.fontSize = labelFontSize
+    
+    lowerLabel.string = numberFormatter.string(from: NSNumber(value: lowerValue))
+    upperLabel.string = numberFormatter.string(from: NSNumber(value: upperValue))
+    
+    lowerLabel.foregroundColor = labelColor.cgColor
+    upperLabel.foregroundColor = labelColor.cgColor
+    
+    lowerLabelTextSize = (lowerLabel.string as! NSString).size(attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: labelFontSize)])
+    upperLabelTextSize = (upperLabel.string as! NSString).size(attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: labelFontSize)])
   }
   
-  /**
-   Returns the position of the Knob to be placed on the slider given the value it should be on the slider
- */
-  func positionForValue(_ value: Double) -> CGPoint {
-    if maximumValue == minimumValue {
-      return CGPoint(x: 0, y: 0)
+  ///Updates the labels positions above the knobs.
+  open func updateLabelPositions() {
+    let minDistanceBetweenLabels: CGFloat = 8.0
+    
+    let lowerKnobCenter = centerOfRect(rect: lowerKnob.frame)
+    let upperKnobCenter = centerOfRect(rect: upperKnob.frame)
+    
+    var newLowerLabelCenter = CGPoint(x: lowerKnobCenter.x, y: lowerKnob.frame.origin.y - (lowerLabel.frame.size.height / 2))
+    var newUpperLabelCenter = CGPoint(x: upperKnobCenter.x, y: upperKnob.frame.origin.y - (upperLabel.frame.size.height / 2))
+    
+    lowerLabel.frame = CGRect(x: 0, y: 0, width: lowerLabelTextSize.width, height: lowerLabelTextSize.height)
+    upperLabel.frame = CGRect(x: 0, y: 0, width: upperLabelTextSize.width, height: upperLabelTextSize.height)
+    
+    let rightMostXInLowerLabel = newLowerLabelCenter.x + lowerLabelTextSize.width / 2
+    let leftMostXInUpperLabel = newUpperLabelCenter.x - upperLabelTextSize.width / 2
+    let spacingBetweenLabels = leftMostXInUpperLabel - rightMostXInLowerLabel
+    
+    if spacingBetweenLabels < minDistanceBetweenLabels {
+      let increaseAmount = minDistanceBetweenLabels - spacingBetweenLabels
+      newLowerLabelCenter = CGPoint(x: lowerKnobCenter.x - increaseAmount / 2, y: newLowerLabelCenter.y)
+      newUpperLabelCenter = CGPoint(x: upperKnobCenter.x + increaseAmount / 2, y: newUpperLabelCenter.y)
     }
     
-    let percentage = percentageForValue(value)
-    
-    let xPosition = bounds.width * percentage
-    
-//    let yPosition = bounds.height / 2
-    let yPosition = trackLayer.frame.midY
-    
-    return CGPoint(x: xPosition, y: yPosition)
+    lowerLabel.position = newLowerLabelCenter
+    upperLabel.position = newUpperLabelCenter
   }
   
-  func boundValue(_ value: Double, toLowerValue lowerValue: Double, upperValue: Double) -> Double {
-    return min(max(value, lowerValue), upperValue)
-  }
+  // MARK: Touch Tracking
   
   /**
    Triggers on touch of the `RangeSlider` and checks whether either of the slider buttons have been touched and sets their `highlighted` property to true.
@@ -292,39 +359,39 @@ enum Knob {
   override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
     previousLocation = touch.location(in: self)
     
-    if lowerKnobLayer.frame.contains(previousLocation) && upperKnobLayer.frame.contains(previousLocation) && (previouslySelectedKnob == Knob.Lower || previouslySelectedKnob == Knob.Neither) {
-      lowerKnobLayer.highlighted = true
+    if lowerKnob.frame.contains(previousLocation) && upperKnob.frame.contains(previousLocation) && (previouslySelectedKnob == Knob.Lower || previouslySelectedKnob == Knob.Neither) {
+      lowerKnob.highlighted = true
       previouslySelectedKnob = Knob.Lower
-      animateKnob(knob: lowerKnobLayer, selected: true)
+      animateKnob(knob: lowerKnob, selected: true)
       return true
     }
     
-    if lowerKnobLayer.frame.contains(previousLocation) && upperKnobLayer.frame.contains(previousLocation) && previouslySelectedKnob == Knob.Upper {
-      upperKnobLayer.highlighted = true
+    if lowerKnob.frame.contains(previousLocation) && upperKnob.frame.contains(previousLocation) && previouslySelectedKnob == Knob.Upper {
+      upperKnob.highlighted = true
       previouslySelectedKnob = Knob.Upper
-      animateKnob(knob: upperKnobLayer, selected: true)
+      animateKnob(knob: upperKnob, selected: true)
       return true
     }
     
-    if lowerKnobLayer.frame.contains(previousLocation) {
-      lowerKnobLayer.highlighted = true
+    if lowerKnob.frame.contains(previousLocation) {
+      lowerKnob.highlighted = true
       previouslySelectedKnob = Knob.Lower
-      animateKnob(knob: lowerKnobLayer, selected: true)
+      animateKnob(knob: lowerKnob, selected: true)
       return true
     }
     
-    if upperKnobLayer.frame.contains(previousLocation) {
-      upperKnobLayer.highlighted = true
+    if upperKnob.frame.contains(previousLocation) {
+      upperKnob.highlighted = true
       previouslySelectedKnob = Knob.Upper
-      animateKnob(knob: upperKnobLayer, selected: true)
+      animateKnob(knob: upperKnob, selected: true)
       return true
     }
     
     if (dragTrack) {
-      upperKnobLayer.highlighted = true
-      lowerKnobLayer.highlighted = true
-      animateKnob(knob: lowerKnobLayer, selected: true)
-      animateKnob(knob: upperKnobLayer, selected: true)
+      upperKnob.highlighted = true
+      lowerKnob.highlighted = true
+      animateKnob(knob: lowerKnob, selected: true)
+      animateKnob(knob: upperKnob, selected: true)
       return true
     }
     
@@ -336,7 +403,6 @@ enum Knob {
    
    - returns: A bool indicating success.
    */
-  
   override open func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
     let location = touch.location(in: self)
     
@@ -353,7 +419,7 @@ enum Knob {
     
     previousLocation = location
     
-    if lowerKnobLayer.highlighted && upperKnobLayer.highlighted {
+    if lowerKnob.highlighted && upperKnob.highlighted {
       let gap = upperValue - lowerValue
       if (deltaValue > 0) {
         let newUpperValue = upperValue + deltaValue
@@ -367,10 +433,10 @@ enum Knob {
         upperValue = boundValue(newUpperValue, toLowerValue: (lowerValue + max(minimumDistance, gap)), upperValue: maximumValue)
       }
     }
-    else if lowerKnobLayer.highlighted {
+    else if lowerKnob.highlighted {
       let newLowerValue = lowerValue + deltaValue
       lowerValue = boundValue(newLowerValue, toLowerValue: minimumValue, upperValue: (upperValue - minimumDistance))
-    } else if upperKnobLayer.highlighted {
+    } else if upperKnob.highlighted {
       let newUpperValue = upperValue + deltaValue
       upperValue = boundValue(newUpperValue, toLowerValue: (lowerValue + minimumDistance), upperValue: maximumValue)
     }
@@ -384,35 +450,70 @@ enum Knob {
    Triggers on the end of touch of the `RangeSlider` and sets the button layers `highlighted` property to `false`.
    */
   override open func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-    if lowerKnobLayer.highlighted {
-      lowerKnobLayer.highlighted = false
-      animateKnob(knob: lowerKnobLayer, selected: false)
+    if lowerKnob.highlighted {
+      lowerKnob.highlighted = false
+      animateKnob(knob: lowerKnob, selected: false)
     }
     
-    if upperKnobLayer.highlighted {
-      upperKnobLayer.highlighted = false
-      animateKnob(knob: upperKnobLayer, selected: false)
+    if upperKnob.highlighted {
+      upperKnob.highlighted = false
+      animateKnob(knob: upperKnob, selected: false)
     }
   }
   
-  func animateKnob(knob: RangeSliderKnobLayer, selected:Bool) {
-    if selected {
-      CATransaction.begin()
-      CATransaction.setAnimationDuration(0.3)
-      CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
-      knob.transform = CATransform3DMakeScale(selectedKnobDiameterMultiplier, selectedKnobDiameterMultiplier, 1)
-      CATransaction.setCompletionBlock({
-      })
-      CATransaction.commit()
-    } else {
-      CATransaction.begin()
-      CATransaction.setAnimationDuration(0.3)
-      CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
-      knob.transform = CATransform3DIdentity
-      CATransaction.setCompletionBlock({
-      })
-      CATransaction.commit()
+  // MARK: Animations
+  
+  ///Animates the knobs to grow in size depending on the value of `selectedKnobDiameterMultiplier`
+  func animateKnob(knob: RangeSliderKnob, selected:Bool) {
+    CATransaction.begin()
+    CATransaction.setAnimationDuration(0.3)
+    CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+    
+    knob.transform = selected ? CATransform3DMakeScale(selectedKnobDiameterMultiplier, selectedKnobDiameterMultiplier, 1) : CATransform3DIdentity
+    
+    updateLabelPositions()
+    
+    CATransaction.setCompletionBlock({
+    })
+    CATransaction.commit()
+  }
+  
+  // MARK: Helper Functions
+  
+  /**
+   Returns the position of the Knob to be placed on the slider given the value it should be on the slider
+   */
+  func positionForValue(_ value: Double) -> CGPoint {
+    if maximumValue == minimumValue {
+      return CGPoint(x: 0, y: 0)
     }
+    
+    let percentage = percentageForValue(value)
+    
+    let xPosition = bounds.width * percentage
+    
+    let yPosition = track.frame.midY
+    
+    return CGPoint(x: xPosition, y: yPosition)
+  }
+  
+  func percentageForValue(_ value: Double) -> CGFloat {
+    if minimumValue == maximumValue {
+      return 0
+    }
+    
+    let maxMinDiff = maximumValue - minimumValue
+    let valueSubtracted = value - minimumValue
+    
+    return CGFloat(valueSubtracted / maxMinDiff)
+  }
+  
+  func boundValue(_ value: Double, toLowerValue lowerValue: Double, upperValue: Double) -> Double {
+    return min(max(value, lowerValue), upperValue)
+  }
+  
+  func centerOfRect(rect: CGRect) -> CGPoint {
+    return CGPoint(x: rect.midX, y: rect.midY)
   }
 }
 

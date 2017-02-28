@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		21B7C588694F805972ABA889 /* Pods_SwiftRangeSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BCA713F988FE09DF748C40 /* Pods_SwiftRangeSlider.framework */; };
 		E80671301CF27E3F00EAE8FA /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806712D1CF27E3F00EAE8FA /* RangeSlider.swift */; };
-		E80671311CF27E3F00EAE8FA /* RangeSliderKnobLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806712E1CF27E3F00EAE8FA /* RangeSliderKnobLayer.swift */; };
-		E80671321CF27E3F00EAE8FA /* RangeSliderTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806712F1CF27E3F00EAE8FA /* RangeSliderTrackLayer.swift */; };
+		E80671311CF27E3F00EAE8FA /* RangeSliderKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806712E1CF27E3F00EAE8FA /* RangeSliderKnob.swift */; };
+		E80671321CF27E3F00EAE8FA /* RangeSliderTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806712F1CF27E3F00EAE8FA /* RangeSliderTrack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,8 +19,8 @@
 		E80671221CF27AFB00EAE8FA /* SwiftRangeSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftRangeSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E80671271CF27AFB00EAE8FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E806712D1CF27E3F00EAE8FA /* RangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
-		E806712E1CF27E3F00EAE8FA /* RangeSliderKnobLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSliderKnobLayer.swift; sourceTree = "<group>"; };
-		E806712F1CF27E3F00EAE8FA /* RangeSliderTrackLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSliderTrackLayer.swift; sourceTree = "<group>"; };
+		E806712E1CF27E3F00EAE8FA /* RangeSliderKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSliderKnob.swift; sourceTree = "<group>"; };
+		E806712F1CF27E3F00EAE8FA /* RangeSliderTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSliderTrack.swift; sourceTree = "<group>"; };
 		F4C9601CE5B09153BABEA21E /* Pods-SwiftRangeSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRangeSlider.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRangeSlider/Pods-SwiftRangeSlider.debug.xcconfig"; sourceTree = "<group>"; };
 		F945C7875809BC1BDCB729D1 /* Pods-SwiftRangeSlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRangeSlider.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRangeSlider/Pods-SwiftRangeSlider.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,8 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				E806712D1CF27E3F00EAE8FA /* RangeSlider.swift */,
-				E806712E1CF27E3F00EAE8FA /* RangeSliderKnobLayer.swift */,
-				E806712F1CF27E3F00EAE8FA /* RangeSliderTrackLayer.swift */,
+				E806712E1CF27E3F00EAE8FA /* RangeSliderKnob.swift */,
+				E806712F1CF27E3F00EAE8FA /* RangeSliderTrack.swift */,
 				E80671271CF27AFB00EAE8FA /* Info.plist */,
 			);
 			path = SwiftRangeSlider;
@@ -199,8 +199,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E80671301CF27E3F00EAE8FA /* RangeSlider.swift in Sources */,
-				E80671321CF27E3F00EAE8FA /* RangeSliderTrackLayer.swift in Sources */,
-				E80671311CF27E3F00EAE8FA /* RangeSliderKnobLayer.swift in Sources */,
+				E80671321CF27E3F00EAE8FA /* RangeSliderTrack.swift in Sources */,
+				E80671311CF27E3F00EAE8FA /* RangeSliderKnob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
