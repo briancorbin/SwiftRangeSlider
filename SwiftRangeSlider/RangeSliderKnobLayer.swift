@@ -1,5 +1,5 @@
 //
-//  RangeSliderThumbLayer.swift
+//  RangeSliderKnobLayer.swift
 //  SwiftRangeSlider
 //
 //  Created by Brian Corbin on 5/22/16.
@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class RangeSliderThumbLayer: CALayer {
+class RangeSliderKnobLayer: CALayer {
   var highlighted: Bool = false {
     didSet {
       if let superLayer = superlayer, highlighted {
@@ -23,26 +23,26 @@ class RangeSliderThumbLayer: CALayer {
   
   override func draw(in ctx: CGContext) {
     if let slider = rangeSlider {
-      let thumbFrame = bounds.insetBy(dx: 2.0, dy: 2.0)
-      let cornerRadius = thumbFrame.height * slider.curvaceousness / 2
-      let thumbPath = UIBezierPath(roundedRect: thumbFrame, cornerRadius: cornerRadius)
+      let knobFrame = bounds.insetBy(dx: 2.0, dy: 2.0)
+      let cornerRadius = knobFrame.height * slider.curvaceousness / 2
+      let knobPath = UIBezierPath(roundedRect: knobFrame, cornerRadius: cornerRadius)
       
       let shadowColor = UIColor.gray
-      if (rangeSlider!.thumbHasShadow){
+      if (rangeSlider!.knobHasShadow){
         ctx.setShadow(offset: CGSize(width: 0.0, height: 1.0), blur: 1.0, color: shadowColor.cgColor)
       }
-      ctx.setFillColor(slider.thumbTintColor.cgColor)
-      ctx.addPath(thumbPath.cgPath)
+      ctx.setFillColor(slider.knobTintColor.cgColor)
+      ctx.addPath(knobPath.cgPath)
       ctx.fillPath()
       
-      ctx.setStrokeColor(shadowColor.cgColor)
-      ctx.setLineWidth((rangeSlider?.thumbBorderThickness)!)
-      ctx.addPath(thumbPath.cgPath)
+      ctx.setStrokeColor(slider.knobBorderTintColor.cgColor)
+      ctx.setLineWidth((rangeSlider?.knobBorderThickness)!)
+      ctx.addPath(knobPath.cgPath)
       ctx.strokePath()
       
       if highlighted {
         ctx.setFillColor(UIColor(white: 0.0, alpha: 0.1).cgColor)
-        ctx.addPath(thumbPath.cgPath)
+        ctx.addPath(knobPath.cgPath)
         ctx.fillPath()
       }
     }
