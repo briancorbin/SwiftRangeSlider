@@ -77,15 +77,31 @@ enum Knob {
     }
   }
   
-  ///the thickness of the track bar. `1.0` by default.
-  @IBInspectable open var trackThickness: CGFloat = 1.0 {
+  ///the thickness of the track bar. `0.05` by default.
+  @IBInspectable open var trackThickness: CGFloat = 0.05 {
     didSet {
       updateTrackLayerFrameAndKnobPositions()
     }
   }
   
-  ///The diameter of the knob. '16' by default.
-  @IBInspectable open var knobDiameter: CGFloat = 25 {
+  ///Whether the track thickness is true or proportional to its containers frame height
+  @IBInspectable open var trueTrackThickness: Bool = false {
+    didSet {
+      updateTrackLayerFrameAndKnobPositions()
+    }
+  }
+  
+  ///The diameter of the knob. '0.95' by default.
+  @IBInspectable open var knobSize: CGFloat = 0.95 {
+    didSet {
+      updateLayerFramesAndPositions()
+      lowerKnobLayer.setNeedsDisplay()
+      upperKnobLayer.setNeedsDisplay()
+    }
+  }
+  
+  ///Whether the knob size is true or proportional to its containers frame height
+  @IBInspectable open var trueKnobSize: Bool = false {
     didSet {
       updateLayerFramesAndPositions()
       lowerKnobLayer.setNeedsDisplay()
@@ -101,8 +117,8 @@ enum Knob {
     }
   }
   
-  ///The thickness of the slider buttons border. `0.0` by default.
-  @IBInspectable open var knobBorderThickness: CGFloat = 0.0 {
+  ///The thickness of the slider buttons border. `0.1` by default.
+  @IBInspectable open var knobBorderThickness: CGFloat = 0.1 {
     didSet {
       lowerKnobLayer.setNeedsDisplay()
       upperKnobLayer.setNeedsDisplay()
@@ -117,8 +133,8 @@ enum Knob {
     }
   }
   
-  ///The size to multiply the knob by on selection. `1.7` by default.
-  @IBInspectable open var selectedKnobDiameterMultiplier: CGFloat = 1.7 {
+  ///The size to multiply the knob by on selection. `1.0` by default.
+  @IBInspectable open var selectedKnobDiameterMultiplier: CGFloat = 1.0 {
     didSet {
       lowerKnobLayer.setNeedsDisplay()
       upperKnobLayer.setNeedsLayout()
@@ -126,7 +142,7 @@ enum Knob {
   }
   
   ///Whether or not the slider buttons have a shadow. `true` by default.
-  @IBInspectable open var knobHasShadow: Bool = false {
+  @IBInspectable open var knobHasShadow: Bool = true {
     didSet{
       lowerKnobLayer.setNeedsDisplay()
       upperKnobLayer.setNeedsDisplay()
@@ -151,6 +167,18 @@ enum Knob {
   let trackLayer = RangeSliderTrackLayer()
   let lowerKnobLayer = RangeSliderKnobLayer()
   let upperKnobLayer = RangeSliderKnobLayer()
+  
+  var TrackThickness: CGFloat {
+    get {
+      return trueTrackThickness ? trackThickness : trackThickness * bounds.height
+    }
+  }
+  
+  var KnobSize: CGFloat {
+    get {
+      return trueKnobSize ? knobSize : knobSize * bounds.height
+    }
+  }
   
   ///The frame of the `RangeSlider` instance.
   override open var frame: CGRect {
@@ -186,12 +214,12 @@ enum Knob {
     trackLayer.contentsScale = UIScreen.main.scale
     layer.addSublayer(trackLayer)
     
-    lowerKnobLayer.frame = CGRect(x: 0, y: 0, width: knobDiameter, height: knobDiameter)
+    lowerKnobLayer.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
     lowerKnobLayer.rangeSlider = self
     lowerKnobLayer.contentsScale = UIScreen.main.scale
     layer.addSublayer(lowerKnobLayer)
     
-    upperKnobLayer.frame = CGRect(x: 0, y: 0, width: knobDiameter, height: knobDiameter)
+    upperKnobLayer.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
     upperKnobLayer.rangeSlider = self
     upperKnobLayer.contentsScale = UIScreen.main.scale
     layer.addSublayer(upperKnobLayer)
@@ -200,8 +228,8 @@ enum Knob {
   // MARK: Member Functions
   
   open func updateLayerFramesAndPositions() {
-    lowerKnobLayer.frame = CGRect(x: 0, y: 0, width: knobDiameter, height: knobDiameter)
-    upperKnobLayer.frame = CGRect(x: 0, y: 0, width: knobDiameter, height: knobDiameter)
+    lowerKnobLayer.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
+    upperKnobLayer.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
     updateTrackLayerFrameAndKnobPositions()
   }
   
@@ -209,8 +237,8 @@ enum Knob {
   open func updateTrackLayerFrameAndKnobPositions() {
     CATransaction.begin()
     CATransaction.setDisableActions(true)
-    let newTrackDy = (frame.height - trackThickness) / 2
-    trackLayer.frame = CGRect(x: 0, y: newTrackDy, width: frame.width, height: trackThickness)
+    let newTrackDy = (frame.height - TrackThickness) / 2
+    trackLayer.frame = CGRect(x: 0, y: newTrackDy, width: frame.width, height: TrackThickness)
     trackLayer.setNeedsDisplay()
     
     let lowerKnobCenter = positionForValue(lowerValue)
@@ -313,7 +341,7 @@ enum Knob {
     let location = touch.location(in: self)
     
     let deltaLocation = Double(location.x - previousLocation.x)
-    var deltaValue = (maximumValue - minimumValue) * deltaLocation / Double(bounds.width - knobDiameter)
+    var deltaValue = (maximumValue - minimumValue) * deltaLocation / Double(bounds.width - KnobSize)
     
     if abs(deltaValue) < stepValue {
       return true
