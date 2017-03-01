@@ -9,13 +9,6 @@
 import UIKit
 import QuartzCore
 
-enum Knob {
-  case Neither
-  case Lower
-  case Upper
-  case Both
-}
-
 ///Class that represents the RangeSlider object.
 @IBDesignable open class RangeSlider: UIControl {
   
@@ -35,12 +28,19 @@ enum Knob {
     }
   }
   
-  ///The minimum difference in value between the Knobs
+  ///The minimum difference in value between the Knobs. `0.0` is both default and disabled
   @IBInspectable open var minimumDistance: Double = 0.0 {
     didSet {
       updateTrackLayerFrameAndKnobPositions()
     }
   }
+  
+//  ///The maximum difference in value between the Knobs. `-1.0` is both default and disabled
+//  @IBInspectable open var maximumDistance: Double = -1.0 {
+//    didSet {
+//      updateTrackLayerFrameAndKnobPositions()
+//    }T
+//  }
   
   ///The current lower value selected on the RangeSlider
   @IBInspectable open var lowerValue: Double = 2.0 {

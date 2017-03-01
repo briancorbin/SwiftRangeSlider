@@ -9,6 +9,13 @@
 import UIKit
 import QuartzCore
 
+enum Knob {
+  case Neither
+  case Lower
+  case Upper
+  case Both
+}
+
 class RangeSliderKnob: CALayer {
   var highlighted: Bool = false {
     didSet {
