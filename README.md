@@ -45,7 +45,7 @@ import SwiftRangeSlider
 
 ### With Storyboards
 
-To use SwiftRangeSlider on a storyboard, add a UIView to your view controller and set its class to RangeSlider.
+To use SwiftRangeSlider on a storyboard, add a UIView to your view controller and set its class to RangeSlider. The Range Slider defaults to an iOS-esque style of slider, but it can be modified to look lots of different ways! There is even scaling on touch and labels, so be sure to experiment until you find exactly what you like!
 
 ![SRS With Storyboards 1](http://imgur.com/C69FAOO.png)
 ![SRS With Storyboards 2](http://i.imgur.com/HSVrFKU.png)
