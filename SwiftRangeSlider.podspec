@@ -6,7 +6,7 @@ s.name = "SwiftRangeSlider"
 s.summary = "A Swift implementation of a custom UIControl for selecting a range of values on a slider bar."
 s.requires_arc = true
 
-s.version = "0.7.1"
+s.version = "1.0.0"
 s.license = { :type => "MIT", :file => "LICENSE" }
 s.author = { "Brian Corbin" => "brian.william.corbin@gmail.com" }
 s.homepage = "https://github.com/BrianCorbin/SwiftRangeSlider"
