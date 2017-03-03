@@ -182,6 +182,14 @@ import QuartzCore
       updateLabelText()
     }
   }
+    
+  ///Whether the knob is clip to bounds.
+  open var knobAnchorPosition: KnobAnchorPosition = .center {
+    didSet {
+      updateTrackLayerFrameAndKnobPositions()
+    }
+  }
+    
   
   var previousLocation = CGPoint()
   var previouslySelectedKnob = Knob.Neither
@@ -490,11 +498,21 @@ import QuartzCore
     
     let percentage = percentageForValue(value)
     
-    let xPosition = bounds.width * percentage
+    var knobDeltaX: CGFloat = 0
+    var knobDeltaWidth:CGFloat = 0
+    
+    switch (knobAnchorPosition) {
+    case .inside:
+      knobDeltaX = (KnobSize / 2) - RangeSliderKnob.KnobDelta
+      knobDeltaWidth = -(KnobSize - (RangeSliderKnob.KnobDelta * 2))
+    case _: break
+    }
+    
+    let xPosition = (bounds.width + knobDeltaWidth) * percentage
     
     let yPosition = track.frame.midY
     
-    return CGPoint(x: xPosition, y: yPosition)
+    return CGPoint(x: xPosition + knobDeltaX, y: yPosition)
   }
   
   func percentageForValue(_ value: Double) -> CGFloat {
