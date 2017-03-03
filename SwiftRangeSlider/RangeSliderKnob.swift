@@ -17,6 +17,8 @@ enum Knob {
 }
 
 class RangeSliderKnob: CALayer {
+  var highlightable: Bool = true
+    
   var highlighted: Bool = false {
     didSet {
       if let superLayer = superlayer, highlighted {
@@ -47,7 +49,7 @@ class RangeSliderKnob: CALayer {
       ctx.addPath(knobPath.cgPath)
       ctx.strokePath()
       
-      if highlighted {
+      if highlighted && highlightable {
         ctx.setFillColor(UIColor(white: 0.0, alpha: 0.1).cgColor)
         ctx.addPath(knobPath.cgPath)
         ctx.fillPath()

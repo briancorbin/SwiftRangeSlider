@@ -183,6 +183,14 @@ import QuartzCore
     }
   }
   
+  ///Whether the knows are highlightable. `true` by default.
+  @IBInspectable open var knobHighlightable: Bool = true {
+    didSet {
+      upperKnob.highlightable = knobHighlightable
+      lowerKnob.highlightable = knobHighlightable
+    }
+  }
+    
   var previousLocation = CGPoint()
   var previouslySelectedKnob = Knob.Neither
   
@@ -243,11 +251,13 @@ import QuartzCore
     
     lowerKnob.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
     lowerKnob.rangeSlider = self
+    lowerKnob.highlightable = knobHighlightable
     lowerKnob.contentsScale = UIScreen.main.scale
     layer.addSublayer(lowerKnob)
     
     upperKnob.frame = CGRect(x: 0, y: 0, width: KnobSize, height: KnobSize)
     upperKnob.rangeSlider = self
+    upperKnob.highlightable = knobHighlightable
     upperKnob.contentsScale = UIScreen.main.scale
     layer.addSublayer(upperKnob)
     
