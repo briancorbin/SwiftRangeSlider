@@ -77,7 +77,7 @@ import QuartzCore
     }
   }
   
-  ///the thickness of the track bar. `0.05` by default.
+  ///The thickness of the track bar. `0.05` by default.
   @IBInspectable open var trackThickness: CGFloat = 0.05 {
     didSet {
       updateTrackLayerFrameAndKnobPositions()
@@ -91,10 +91,10 @@ import QuartzCore
     }
   }
   
-  ///Whether or not you can drag the highligh area to move both Knobs at the same time.
+  ///Whether or not you can drag the highlighted area to move both Knobs at the same time.
   @IBInspectable open var dragTrack: Bool = false
   
-  ///The diameter of the knob. '0.95' by default.
+  ///The diameter of the Knob. '0.95' by default.
   @IBInspectable open var knobSize: CGFloat = 0.95 {
     didSet {
       updateLayerFramesAndPositions()
@@ -103,7 +103,7 @@ import QuartzCore
     }
   }
   
-  ///Whether the knob size is true or proportional to its containers frame height
+  ///Whether the Knob size is true or proportional to its containers frame height
   @IBInspectable open var trueKnobSize: Bool = false {
     didSet {
       updateLayerFramesAndPositions()
@@ -128,7 +128,7 @@ import QuartzCore
     }
   }
   
-  ///The color of the knob borders. `UIColor.gray` by default.
+  ///The color of the Knob borders. `UIColor.gray` by default.
   @IBInspectable open var knobBorderTintColor: UIColor = UIColor.gray {
     didSet {
       lowerKnob.setNeedsDisplay()
@@ -136,7 +136,7 @@ import QuartzCore
     }
   }
   
-  ///The size to multiply the knob by on selection. `1.0` by default.
+  ///The size to multiply the Knob by on selection. `1.0` by default.
   @IBInspectable open var selectedKnobDiameterMultiplier: CGFloat = 1.0 {
     didSet {
       lowerKnob.setNeedsDisplay()
@@ -463,7 +463,7 @@ import QuartzCore
   
   // MARK: Animations
   
-  ///Animates the knobs to grow in size depending on the value of `selectedKnobDiameterMultiplier`
+  ///Animates the Knobs to grow in size depending on the value of `selectedKnobDiameterMultiplier`
   func animateKnob(knob: RangeSliderKnob, selected:Bool) {
     CATransaction.begin()
     CATransaction.setAnimationDuration(0.3)
