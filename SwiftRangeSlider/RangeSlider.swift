@@ -35,13 +35,6 @@ import QuartzCore
     }
   }
   
-//  ///The maximum difference in value between the Knobs. `-1.0` is both default and disabled
-//  @IBInspectable open var maximumDistance: Double = -1.0 {
-//    didSet {
-//      updateTrackLayerFrameAndKnobPositions()
-//    }T
-//  }
-  
   ///The current lower value selected on the RangeSlider
   @IBInspectable open var lowerValue: Double = 2.0 {
     didSet {
@@ -77,7 +70,7 @@ import QuartzCore
     }
   }
   
-  ///the thickness of the track bar. `0.05` by default.
+  ///The thickness of the track bar. `0.05` by default.
   @IBInspectable open var trackThickness: CGFloat = 0.05 {
     didSet {
       updateTrackLayerFrameAndKnobPositions()
@@ -91,10 +84,10 @@ import QuartzCore
     }
   }
   
-  ///Whether or not you can drag the highligh area to move both Knobs at the same time.
+  ///Whether or not you can drag the highlighted area to move both Knobs at the same time.
   @IBInspectable open var dragTrack: Bool = false
   
-  ///The diameter of the knob. '0.95' by default.
+  ///The diameter of the Knob. '0.95' by default.
   @IBInspectable open var knobSize: CGFloat = 0.95 {
     didSet {
       updateLayerFramesAndPositions()
@@ -103,7 +96,7 @@ import QuartzCore
     }
   }
   
-  ///Whether the knob size is true or proportional to its containers frame height
+  ///Whether the Knob size is true or proportional to its containers frame height.
   @IBInspectable open var trueKnobSize: Bool = false {
     didSet {
       updateLayerFramesAndPositions()
@@ -128,7 +121,7 @@ import QuartzCore
     }
   }
   
-  ///The color of the knob borders. `UIColor.gray` by default.
+  ///The color of the Knob borders. `UIColor.gray` by default.
   @IBInspectable open var knobBorderTintColor: UIColor = UIColor.gray {
     didSet {
       lowerKnob.setNeedsDisplay()
@@ -136,7 +129,7 @@ import QuartzCore
     }
   }
   
-  ///The size to multiply the knob by on selection. `1.0` by default.
+  ///The size to multiply the Knob by on selection. `1.0` by default.
   @IBInspectable open var selectedKnobDiameterMultiplier: CGFloat = 1.0 {
     didSet {
       lowerKnob.setNeedsDisplay()
@@ -182,14 +175,6 @@ import QuartzCore
       updateLabelText()
     }
   }
-    
-  ///Whether the knob is clip to bounds.
-  open var knobAnchorPosition: KnobAnchorPosition = .center {
-    didSet {
-      updateTrackLayerFrameAndKnobPositions()
-    }
-  }
-    
   
   var previousLocation = CGPoint()
   var previouslySelectedKnob = Knob.Neither
@@ -498,15 +483,8 @@ import QuartzCore
     
     let percentage = percentageForValue(value)
     
-    var knobDeltaX: CGFloat = 0
-    var knobDeltaWidth:CGFloat = 0
-    
-    switch (knobAnchorPosition) {
-    case .inside:
-      knobDeltaX = (KnobSize / 2) - RangeSliderKnob.KnobDelta
-      knobDeltaWidth = -(KnobSize - (RangeSliderKnob.KnobDelta * 2))
-    case _: break
-    }
+    let knobDeltaX: CGFloat = (KnobSize / 2) - RangeSliderKnob.KnobDelta
+    let knobDeltaWidth:CGFloat = -(KnobSize - (RangeSliderKnob.KnobDelta * 2))
     
     let xPosition = (bounds.width + knobDeltaWidth) * percentage
     
