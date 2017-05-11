@@ -16,7 +16,14 @@ enum Knob {
   case Both
 }
 
+public enum KnobAnchorPosition {
+  case inside
+  case center
+}
+
 class RangeSliderKnob: CALayer {
+  static var KnobDelta: CGFloat = 2.0
+    
   var highlighted: Bool = false {
     didSet {
       if let superLayer = superlayer, highlighted {
@@ -30,7 +37,7 @@ class RangeSliderKnob: CALayer {
   
   override func draw(in ctx: CGContext) {
     if let slider = rangeSlider {
-      let knobFrame = bounds.insetBy(dx: 2.0, dy: 2.0)
+      let knobFrame = bounds.insetBy(dx: RangeSliderKnob.KnobDelta, dy: RangeSliderKnob.KnobDelta)
       let cornerRadius = knobFrame.height * slider.curvaceousness / 2
       let knobPath = UIBezierPath(roundedRect: knobFrame, cornerRadius: cornerRadius)
       
