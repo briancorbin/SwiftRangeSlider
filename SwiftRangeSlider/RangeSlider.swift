@@ -289,6 +289,26 @@ import QuartzCore
     updateLabelPositions()
     CATransaction.commit()
   }
+    
+    /**
+     Get the label text for a given value.
+     
+     - parameters:
+        - value: The lower or upper value.
+     
+     - returns: Text for lower or upper label.
+     
+     Breaking out this functionality from 'updateLabelText()' allows a subclass of RangeSlider to override this method and provide custom text. For example, if the slider is representing centimeters of snow, the override function could return "\(value)cm" instead of just "\(value)". Or it could modify the number of decimals shown.
+     */
+    open func getLabelText(forValue value: Double) -> String {
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        numberFormatter.maximumFractionDigits = 0
+        guard let labelText = numberFormatter.string(from: NSNumber(value: value)) else { return "" }
+        
+        return labelText
+    }
   
   ///Updates the labels text content.
   open func updateLabelText() {
@@ -298,15 +318,11 @@ import QuartzCore
       return
     }
     
-    let numberFormatter = NumberFormatter()
-    numberFormatter.numberStyle = NumberFormatter.Style.decimal
-    numberFormatter.maximumFractionDigits = 0
-    
     lowerLabel.fontSize = labelFontSize
     upperLabel.fontSize = labelFontSize
     
-    lowerLabel.string = numberFormatter.string(from: NSNumber(value: lowerValue))
-    upperLabel.string = numberFormatter.string(from: NSNumber(value: upperValue))
+    lowerLabel.string = getLabelText(forValue: lowerValue)
+    upperLabel.string = getLabelText(forValue: upperValue)
     
     lowerLabel.foregroundColor = labelColor.cgColor
     upperLabel.foregroundColor = labelColor.cgColor
