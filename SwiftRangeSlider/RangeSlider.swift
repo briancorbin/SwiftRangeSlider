@@ -260,7 +260,12 @@ import QuartzCore
     upperLabel.foregroundColor = labelColor.cgColor
     layer.addSublayer(upperLabel)
   }
-  
+
+  override open func layoutSubviews() {
+    super.layoutSubviews()
+    updateLayerFrames()
+  }
+
   // MARK: Member Functions
   
   open func updateLayerFramesAndPositions() {
