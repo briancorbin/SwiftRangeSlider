@@ -206,6 +206,19 @@ import QuartzCore
       updateLayerFramesAndPositions()
     }
   }
+    
+    var trackRange: Double {
+        return maximumValue - minimumValue
+    }
+    
+    var knobsAreClose: Bool {
+        return lowerValue + trackRange * 0.05 >= upperValue
+    }
+    
+    var knobsAreCloserToMinimum: Bool {
+        return maximumValue - upperValue > lowerValue - minimumValue
+    }
+    
   
   // MARK: - Lifecycle
   
@@ -344,6 +357,12 @@ import QuartzCore
   
   // MARK: Touch Tracking
   
+    private func highlightKnob(_ knob: RangeSliderKnob, knobPosition: Knob) {
+        knob.highlighted = true
+        previouslySelectedKnob = knobPosition
+        animateKnob(knob: knob, selected: true)
+    }
+    
   /**
    Triggers on touch of the `RangeSlider` and checks whether either of the slider buttons have been touched and sets their `highlighted` property to true.
    
@@ -352,32 +371,29 @@ import QuartzCore
   override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
     previousLocation = touch.location(in: self)
     
-    if lowerKnob.frame.contains(previousLocation) && upperKnob.frame.contains(previousLocation) && (previouslySelectedKnob == Knob.Lower || previouslySelectedKnob == Knob.Neither) {
-      lowerKnob.highlighted = true
-      previouslySelectedKnob = Knob.Lower
-      animateKnob(knob: lowerKnob, selected: true)
-      return true
-    }
-    
-    if lowerKnob.frame.contains(previousLocation) && upperKnob.frame.contains(previousLocation) && previouslySelectedKnob == Knob.Upper {
-      upperKnob.highlighted = true
-      previouslySelectedKnob = Knob.Upper
-      animateKnob(knob: upperKnob, selected: true)
-      return true
+    if lowerKnob.frame.contains(previousLocation) && upperKnob.frame.contains(previousLocation) {
+        
+        if knobsAreClose {
+            let knobToHighlight = knobsAreCloserToMinimum ? upperKnob : lowerKnob
+            let knobPosiition = knobsAreCloserToMinimum ? Knob.Upper : Knob.Lower
+            highlightKnob(knobToHighlight, knobPosition: knobPosiition)
+            return true
+        }
+        
+        let knobToHighlight = previouslySelectedKnob == Knob.Lower ? lowerKnob : upperKnob
+        let knobPosiition = previouslySelectedKnob == Knob.Lower ? Knob.Lower : Knob.Upper
+        highlightKnob(knobToHighlight, knobPosition: knobPosiition)
+        return true
     }
     
     if lowerKnob.frame.contains(previousLocation) {
-      lowerKnob.highlighted = true
-      previouslySelectedKnob = Knob.Lower
-      animateKnob(knob: lowerKnob, selected: true)
-      return true
+        highlightKnob(lowerKnob, knobPosition: Knob.Lower)
+        return true
     }
     
     if upperKnob.frame.contains(previousLocation) {
-      upperKnob.highlighted = true
-      previouslySelectedKnob = Knob.Upper
-      animateKnob(knob: upperKnob, selected: true)
-      return true
+        highlightKnob(upperKnob, knobPosition: Knob.Upper)
+        return true
     }
     
     if (dragTrack) {
