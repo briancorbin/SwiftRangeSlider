@@ -27,7 +27,7 @@ class ViewController: UIViewController, RappleColorPickerDelegate {
   }
   
   override func viewDidLayoutSubviews() {
-    rangeSlider.updateLayerFrames()
+    rangeSlider.updateLayerFramesAndPositions()
   }
   
   @IBAction func rangeSliderValuesChanged(_ rangeSlider: RangeSlider) {
@@ -62,7 +62,7 @@ class ViewController: UIViewController, RappleColorPickerDelegate {
     case 1:
       rangeSlider.trackHighlightTintColor = color
     case 2:
-      rangeSlider.thumbTintColor = color
+      rangeSlider.trackTintColor = color
     default:
       break
     }

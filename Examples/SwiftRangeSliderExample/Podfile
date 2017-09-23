@@ -4,5 +4,5 @@ use_frameworks!
 
 target 'SwiftRangeSliderExample' do
     pod 'RappleColorPicker'
-    pod 'SwiftRangeSlider'
+    pod 'SwiftRangeSlider', :path => '../../'
 end

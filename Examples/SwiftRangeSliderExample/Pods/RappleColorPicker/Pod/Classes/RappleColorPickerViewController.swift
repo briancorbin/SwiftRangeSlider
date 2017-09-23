@@ -116,6 +116,7 @@ class RappleColorPickerViewController: UIViewController, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         if delegate?.responds(to: "colorSelected:") == true {
             delegate?.colorSelected?(getColor(indexPath.section, row: indexPath.row))
         }
