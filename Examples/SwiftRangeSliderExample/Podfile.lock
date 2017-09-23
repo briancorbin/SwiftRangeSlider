@@ -1,19 +1,19 @@
 PODS:
   - RappleColorPicker (1.2.5)
-  - SwiftRangeSlider (0.5.0)
+  - SwiftRangeSlider (1.1.0)
 
 DEPENDENCIES:
   - RappleColorPicker
-  - SwiftRangeSlider (from `~/Documents/Programming/Mobile/Pods/SwiftRangeSlider`)
+  - SwiftRangeSlider (from `../../`)
 
 EXTERNAL SOURCES:
   SwiftRangeSlider:
-    :path: ~/Documents/Programming/Mobile/Pods/SwiftRangeSlider
+    :path: ../../
 
 SPEC CHECKSUMS:
   RappleColorPicker: a65830bf046b27e45f7d9fcbe8f70c11c85a32d6
-  SwiftRangeSlider: 97f3b77bf4e1c362f1098800a54a2eddcfafccd4
+  SwiftRangeSlider: ceae77620845ee87c6c137276f34f396dd0178c5
 
-PODFILE CHECKSUM: a6ec3acdb63abddbefce9d0c219ed991b694d743
+PODFILE CHECKSUM: 2417c7f3e5885210c267957bfc94103fde9c89a6
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.3.1
