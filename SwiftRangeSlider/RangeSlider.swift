@@ -340,8 +340,8 @@ import QuartzCore
     lowerLabel.foregroundColor = labelColor.cgColor
     upperLabel.foregroundColor = labelColor.cgColor
     
-    lowerLabelTextSize = (lowerLabel.string as! NSString).size(attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: labelFontSize)])
-    upperLabelTextSize = (upperLabel.string as! NSString).size(attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: labelFontSize)])
+    lowerLabelTextSize = (lowerLabel.string as! NSString).size(withAttributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: labelFontSize)])
+    upperLabelTextSize = (upperLabel.string as! NSString).size(withAttributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: labelFontSize)])
   }
   
   ///Updates the labels positions above the knobs.
