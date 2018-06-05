@@ -176,6 +176,11 @@ import QuartzCore
     }
   }
   
+  /**
+   * Adittional draggable area around knob (optional, default is 0.0).
+   */
+  open var knobDraggableArea : KnobInset = KnobInset(dx: 0, dy: 0)
+  
   var previousLocation = CGPoint()
   var previouslySelectedKnob = Knob.Neither
   
@@ -385,11 +390,22 @@ import QuartzCore
    - returns: A bool indicating if either of the slider buttons were inside of the `UITouch`.
  */
   override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+    
     previousLocation = touch.location(in: self)
     
-    if lowerKnob.frame.contains(previousLocation) && upperKnob.frame.contains(previousLocation) {
+    let lowerKnobDraggableArea = lowerKnob.frame.insetBy(
+      dx: -abs(knobDraggableArea.dx),
+      dy: -abs(knobDraggableArea.dy)
+    )
+    
+    let upperKnobDraggableArea = upperKnob.frame.insetBy(
+      dx: -abs(knobDraggableArea.dx),
+      dy: -abs(knobDraggableArea.dy)
+    )
+    
+    if  lowerKnobDraggableArea.contains(previousLocation) && upperKnobDraggableArea.contains(previousLocation) {
         
-        if knobsAreClose {
+        if  knobsAreClose {
             let knobToHighlight = knobsAreCloserToMinimum ? upperKnob : lowerKnob
             let knobPosiition = knobsAreCloserToMinimum ? Knob.Upper : Knob.Lower
             highlightKnob(knobToHighlight, knobPosition: knobPosiition)
@@ -402,12 +418,12 @@ import QuartzCore
         return true
     }
     
-    if lowerKnob.frame.contains(previousLocation) {
+    if  lowerKnobDraggableArea.contains(previousLocation) {
         highlightKnob(lowerKnob, knobPosition: Knob.Lower)
         return true
     }
     
-    if upperKnob.frame.contains(previousLocation) {
+    if  upperKnobDraggableArea.contains(previousLocation) {
         highlightKnob(upperKnob, knobPosition: Knob.Upper)
         return true
     }
