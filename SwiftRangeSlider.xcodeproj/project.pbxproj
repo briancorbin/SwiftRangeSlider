@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21B7C588694F805972ABA889 /* Pods_SwiftRangeSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BCA713F988FE09DF748C40 /* Pods_SwiftRangeSlider.framework */; };
+		4828F8EB2183419E0026A297 /* SwiftRangeSlider copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4828F8EA2183419E0026A297 /* SwiftRangeSlider copy-Info.plist */; };
 		E80671301CF27E3F00EAE8FA /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806712D1CF27E3F00EAE8FA /* RangeSlider.swift */; };
 		E80671311CF27E3F00EAE8FA /* RangeSliderKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806712E1CF27E3F00EAE8FA /* RangeSliderKnob.swift */; };
 		E80671321CF27E3F00EAE8FA /* RangeSliderTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806712F1CF27E3F00EAE8FA /* RangeSliderTrack.swift */; };
@@ -15,7 +16,7 @@
 
 /* Begin PBXFileReference section */
 		13BCA713F988FE09DF748C40 /* Pods_SwiftRangeSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftRangeSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B00DA9C1D9A5FE900A0A8D7 /* SwiftRangeSlider copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SwiftRangeSlider copy-Info.plist"; path = "/Users/gmabber/Dropbox/code/iphone/SwiftRangeSlider/SwiftRangeSlider copy-Info.plist"; sourceTree = "<absolute>"; };
+		4828F8EA2183419E0026A297 /* SwiftRangeSlider copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SwiftRangeSlider copy-Info.plist"; sourceTree = "<group>"; };
 		E80671221CF27AFB00EAE8FA /* SwiftRangeSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftRangeSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E80671271CF27AFB00EAE8FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E806712D1CF27E3F00EAE8FA /* RangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
@@ -57,11 +58,11 @@
 		E80671181CF27AFB00EAE8FA = {
 			isa = PBXGroup;
 			children = (
+				4828F8EA2183419E0026A297 /* SwiftRangeSlider copy-Info.plist */,
 				E80671241CF27AFB00EAE8FA /* SwiftRangeSlider */,
 				E80671231CF27AFB00EAE8FA /* Products */,
 				6093D5A44E5D451567813780 /* Pods */,
 				1B58CD645E8610742E795183 /* Frameworks */,
-				5B00DA9C1D9A5FE900A0A8D7 /* SwiftRangeSlider copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,7 +107,6 @@
 				E806711E1CF27AFB00EAE8FA /* Frameworks */,
 				E806711F1CF27AFB00EAE8FA /* Headers */,
 				E80671201CF27AFB00EAE8FA /* Resources */,
-				38BCA17BB8A3BAF5FFDED61C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,7 +123,7 @@
 		E80671191CF27AFB00EAE8FA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Caramel Apps";
 				TargetAttributes = {
 					E80671211CF27AFB00EAE8FA = {
@@ -155,27 +155,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4828F8EB2183419E0026A297 /* SwiftRangeSlider copy-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		38BCA17BB8A3BAF5FFDED61C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftRangeSlider/Pods-SwiftRangeSlider-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		CA939E3578E117E223CF2BCB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,12 +209,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -280,12 +268,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -336,7 +326,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -357,7 +347,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
