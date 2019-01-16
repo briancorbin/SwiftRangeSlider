@@ -176,6 +176,11 @@ import QuartzCore
     }
   }
   
+  /**
+   * Adittional draggable area around knob (optional, default is 0.0).
+   */
+  open var knobDraggableArea : KnobInset = KnobInset(dx: 0, dy: 0)
+  
   var previousLocation = CGPoint()
   var previouslySelectedKnob = Knob.Neither
   
@@ -257,7 +262,7 @@ import QuartzCore
     upperKnob.contentsScale = UIScreen.main.scale
     layer.addSublayer(upperKnob)
     
-    lowerLabel.alignmentMode = kCAAlignmentCenter
+    lowerLabel.alignmentMode = CATextLayerAlignmentMode.center
     lowerLabel.fontSize = labelFontSize
     lowerLabel.frame = CGRect(x: 0, y: 0, width: 75, height: labelFontSize)
     lowerLabel.contentsScale = UIScreen.main.scale
@@ -265,7 +270,7 @@ import QuartzCore
     lowerLabel.foregroundColor = labelColor.cgColor
     layer.addSublayer(lowerLabel)
     
-    upperLabel.alignmentMode = kCAAlignmentCenter
+    upperLabel.alignmentMode = CATextLayerAlignmentMode.center
     upperLabel.fontSize = labelFontSize
     upperLabel.frame = CGRect(x: 0, y: 0, width: 75, height: labelFontSize)
     upperLabel.contentsScale = UIScreen.main.scale
@@ -340,8 +345,8 @@ import QuartzCore
     lowerLabel.foregroundColor = labelColor.cgColor
     upperLabel.foregroundColor = labelColor.cgColor
     
-    lowerLabelTextSize = (lowerLabel.string as! NSString).size(attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: labelFontSize)])
-    upperLabelTextSize = (upperLabel.string as! NSString).size(attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: labelFontSize)])
+    lowerLabelTextSize = (lowerLabel.string as! NSString).size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: labelFontSize)])
+    upperLabelTextSize = (upperLabel.string as! NSString).size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: labelFontSize)])
   }
   
   ///Updates the labels positions above the knobs.
@@ -385,11 +390,22 @@ import QuartzCore
    - returns: A bool indicating if either of the slider buttons were inside of the `UITouch`.
  */
   override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+    
     previousLocation = touch.location(in: self)
     
-    if lowerKnob.frame.contains(previousLocation) && upperKnob.frame.contains(previousLocation) {
+    let lowerKnobDraggableArea = lowerKnob.frame.insetBy(
+      dx: -abs(knobDraggableArea.dx),
+      dy: -abs(knobDraggableArea.dy)
+    )
+    
+    let upperKnobDraggableArea = upperKnob.frame.insetBy(
+      dx: -abs(knobDraggableArea.dx),
+      dy: -abs(knobDraggableArea.dy)
+    )
+    
+    if  lowerKnobDraggableArea.contains(previousLocation) && upperKnobDraggableArea.contains(previousLocation) {
         
-        if knobsAreClose {
+        if  knobsAreClose {
             let knobToHighlight = knobsAreCloserToMinimum ? upperKnob : lowerKnob
             let knobPosiition = knobsAreCloserToMinimum ? Knob.Upper : Knob.Lower
             highlightKnob(knobToHighlight, knobPosition: knobPosiition)
@@ -402,12 +418,12 @@ import QuartzCore
         return true
     }
     
-    if lowerKnob.frame.contains(previousLocation) {
+    if  lowerKnobDraggableArea.contains(previousLocation) {
         highlightKnob(lowerKnob, knobPosition: Knob.Lower)
         return true
     }
     
-    if upperKnob.frame.contains(previousLocation) {
+    if  upperKnobDraggableArea.contains(previousLocation) {
         highlightKnob(upperKnob, knobPosition: Knob.Upper)
         return true
     }
@@ -492,7 +508,7 @@ import QuartzCore
   func animateKnob(knob: RangeSliderKnob, selected:Bool) {
     CATransaction.begin()
     CATransaction.setAnimationDuration(0.3)
-    CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+    CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn))
     
     knob.transform = selected ? CATransform3DMakeScale(selectedKnobDiameterMultiplier, selectedKnobDiameterMultiplier, 1) : CATransform3DIdentity
     

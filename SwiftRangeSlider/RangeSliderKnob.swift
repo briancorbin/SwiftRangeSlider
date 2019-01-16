@@ -62,3 +62,15 @@ class RangeSliderKnob: CALayer {
     }
   }
 }
+
+// MARK: - Knob frame inset
+public struct KnobInset {
+    let dx: CGFloat
+    let dy: CGFloat
+    public init(dx: CGFloat, dy: CGFloat) {
+        self.dx = dx
+        self.dy = dy
+    }
+}
+
+
