@@ -7,7 +7,7 @@ This is a swift implementation of custom UIControl that allows users to select a
 
 ## Requirements
 
-- iOS 8.0+
+- iOS 11.0+
 - Xcode 8+
 
 ## Installation
@@ -25,7 +25,7 @@ $ gem install cocoapods
 To integrate SwiftRangeSlider into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-platform :ios, ‘8.0’
+platform :ios, ‘11.0’
 use_frameworks!
 target '[your_app_name]' do
   pod ‘SwiftRangeSlider’
